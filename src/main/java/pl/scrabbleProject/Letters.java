@@ -18,8 +18,13 @@ public class Letters {
         this.pointsForLetter = pointsForLetter;
     }
 
+    @Override
+    public String toString() {
+        return "" + letter;
+    }
 
-//    public List<Letters> lettersList(){
+
+    //    public List<Letters> lettersList(){
 //
 //        List<Letters> lettersList = new ArrayList<>();
 //        Letters a= new Letters('A', 1);

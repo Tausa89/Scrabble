@@ -11,8 +11,5 @@
         <module name="ScrabblePOM" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="ScrabblePOM" target="1.7" />
-    </bytecodeTargetLevel>
   </component>
 </project>

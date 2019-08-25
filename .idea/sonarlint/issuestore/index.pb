@@ -7,8 +7,6 @@ Y
 )src/main/java/pl/scrabbleProject/App.java,9\2\92c28d6a73426e168d063f05aabe30065a8838e6
 ]
 -src/test/java/pl/scrabbleProject/AppTest.java,4\e\4e5bf3a84e43ff69e5252509125b18c6bfd13750
-<
-Scrabble.iml,1\c\1c9f0ebe390c461bc5d04b927d7e17b9a767b4d9
 Z
 *src/main/java/pl/scrabbleProject/Game.java,e\e\ee33acc9245809eb763c225c07ef1945923ee1ab
 _
