@@ -1,8 +1,10 @@
 package pl.scrabbleProject;
 
+import lombok.Getter;
+
 public class GameBoard {
 
-    private Letters[][] gameBoard;
+    private @Getter Letters[][] gameBoard;
 
     public GameBoard() {
         this.gameBoard = new Letters[15][15];
@@ -13,7 +15,7 @@ public class GameBoard {
         for(int i = 0; i < 15; i++){
             System.out.print("\n");
 
-            for (int j = 0; j <8; j++){
+            for (int j = 0; j <15; j++){
                 System.out.print(" ");
                 if(this.gameBoard[i][j]==null){
                     System.out.print(".");
@@ -21,6 +23,10 @@ public class GameBoard {
                     System.out.print(this.gameBoard[i][j].toString());
             }
         }
+    }
+
+    public void addingLetter(int posX, int posY, Letters letter){
+        this.gameBoard[posX][posY] = letter;
     }
 
 

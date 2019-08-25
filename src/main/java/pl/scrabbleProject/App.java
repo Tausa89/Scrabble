@@ -19,8 +19,15 @@ public class App
         logger.info("Hello World");
 
         ListOfLetters bagOfLetters = new ListOfLetters();
+        GameBoard scrabbleBoard = new GameBoard();
+        Letters oneLetter = new Letters('A',1);
+        scrabbleBoard.addingLetter(0,0,oneLetter);
+
+        scrabbleBoard.printScrabbleBoard();
 
         List<Letters> list = HelperMethods.listOfSevenPlayerLetters(bagOfLetters);
+        System.out.println("" +
+                "");
 
         for(Letters letter : list){
             System.out.println(letter.getLetter());
