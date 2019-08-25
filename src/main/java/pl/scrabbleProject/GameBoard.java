@@ -2,10 +2,10 @@ package pl.scrabbleProject;
 
 public class GameBoard {
 
-    private Character[][] gameBoard;
+    private Letters[][] gameBoard;
 
     public GameBoard() {
-        this.gameBoard = new Character[15][15];
+        this.gameBoard = new Letters[15][15];
 
 
     }
