@@ -61,6 +61,7 @@ public class ListOfLetters {
 
     }
 
+
     public void pritn(){
         for (Letters letter : lettersList){
             System.out.println(letter.getLetter());

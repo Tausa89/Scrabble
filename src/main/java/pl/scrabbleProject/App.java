@@ -18,7 +18,9 @@ public class App
         Logger logger = LoggerFactory.getLogger(App.class);
         logger.info("Hello World");
 
-        List<Letters> list = HelperMethods.listOfSevenPlayerLetters();
+        ListOfLetters bagOfLetters = new ListOfLetters();
+
+        List<Letters> list = HelperMethods.listOfSevenPlayerLetters(bagOfLetters);
 
         for(Letters letter : list){
             System.out.println(letter.getLetter());
