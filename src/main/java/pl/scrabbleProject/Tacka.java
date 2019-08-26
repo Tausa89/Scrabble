@@ -10,6 +10,10 @@ public class Tacka {
 
     private @Getter List<Letters> playerListOfLetters;
 
+    public Tacka(){
+        playerListOfLetters = new ArrayList<>();
+    }
+
     public Tacka(ListOfLetters list) {
         this.playerListOfLetters = HelperMethods.listOfSevenPlayerLetters(list);
     }

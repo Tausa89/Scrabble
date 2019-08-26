@@ -36,9 +36,9 @@ public class GameBoard {
             this.gameBoard[posX][posY] = letter;
             HelperMethods.removingLetterFromPlayerListOfLetter(playerListOfLetter.getPlayerListOfLetters(),letter);
             HelperMethods.drawingNewLetter(playerListOfLetter.getPlayerListOfLetters(),bagOfLetters);
+            word.append(letter.getLetter());
 
         }
-        word.append(letter.getLetter());
 
         return word.toString();
     }
