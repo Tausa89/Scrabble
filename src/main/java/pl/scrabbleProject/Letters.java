@@ -1,11 +1,13 @@
 package pl.scrabbleProject;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Letters {
+public @EqualsAndHashCode class Letters {
 
     private @Getter char letter;
     private @Getter int pointsForLetter;

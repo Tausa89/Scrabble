@@ -19,3 +19,7 @@ c
 3src/main/java/pl/scrabbleProject/HelperMethods.java,b\7\b7cca2785c17351177ea78e3b780020b9cd8e333
 \
 ,src/main/java/pl/scrabbleProject/Player.java,2\d\2d020c7a54b239001af0ef6e681f3655f179f0aa
+?
+ScrabblePOM.iml,a\6\a6727073621adb9c2add374769da076cb8cb8fc6
+[
++src/main/java/pl/scrabbleProject/Tacka.java,c\a\ca1782cc779bd78585ffacf4ae0c0ac3fa5dae6c
