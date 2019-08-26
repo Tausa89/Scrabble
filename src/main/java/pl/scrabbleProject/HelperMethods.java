@@ -18,11 +18,9 @@ public class HelperMethods {
     }
 
     public static void drawingNewLetter(List<Letters> playerListOfLetters, ListOfLetters lettersList){
-        for (int i = 0; i < 7 - playerListOfLetters.size(); i++){
             shufflingBagOfLettersAndAddingLetterToPlayerList(playerListOfLetters, lettersList);
             removingLetterFromBagOfLetters(lettersList);
 
-        }
     }
 
     public static void shufflingBagOfLettersAndAddingLetterToPlayerList(List<Letters> playerListOfLetters, ListOfLetters lettersList) {
@@ -39,6 +37,12 @@ public class HelperMethods {
             playerListOfLetters.remove(letter);
         }else
             System.out.println("No more Letters");
+
+    }
+
+    public static void exchangeingLetters(List<Letters> playerListOfLetters, ListOfLetters lettersList, Letters letter){
+        removingLetterFromPlayerListOfLetter(playerListOfLetters,letter);
+        shufflingBagOfLettersAndAddingLetterToPlayerList(playerListOfLetters,lettersList);
 
     }
 

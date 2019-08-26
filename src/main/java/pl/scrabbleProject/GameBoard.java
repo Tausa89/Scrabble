@@ -28,16 +28,18 @@ public class GameBoard {
         }
     }
 
-    public void addingLetter(int posX, int posY, Letters letter,Tacka playerListOfLetter, ListOfLetters bagOfLetters){
+    public String addingLetter(int posX, int posY, Letters letter,Tacka playerListOfLetter, ListOfLetters bagOfLetters){
 
         StringBuilder word = new StringBuilder();
-        List<Letters> playerList = playerListOfLetter.creatingPlayerList(bagOfLetters);
-        if (playerList.contains(letter)){
+        if (playerListOfLetter.getPlayerListOfLetters().contains(letter)){
             this.gameBoard[posX][posY] = letter;
-            playerList.remove(letter);
+            HelperMethods.removingLetterFromPlayerListOfLetter(playerListOfLetter.getPlayerListOfLetters(),letter);
+            HelperMethods.drawingNewLetter(playerListOfLetter.getPlayerListOfLetters(),bagOfLetters);
 
         }
         word.append(letter.getLetter());
+
+        return word.toString();
     }
 
 
