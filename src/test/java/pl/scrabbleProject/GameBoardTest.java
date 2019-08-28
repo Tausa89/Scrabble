@@ -22,7 +22,14 @@ public class GameBoardTest {
 
     @Test
     public void shouldAppendAddedLetterStringBuilder(){
-        Assert.assertEquals("A",board.addingLetter(0,0,letter,playerLetters,bagOfLetter));
+        Assert.assertEquals("A",board.addLetter(0,0,letter,playerLetters,bagOfLetter));
+    }
+
+    @Test
+    public void addedLetterShouldBeOnBoard(){
+        board.addLetter(0,0,letter,playerLetters,bagOfLetter);
+        Assert.assertEquals('A',board.getGameBoard()[0][0].getLetter());
+        Assert.assertNull(board.getGameBoard()[0][1]);
     }
 
 }

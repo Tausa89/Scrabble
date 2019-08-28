@@ -1,6 +1,5 @@
 package pl.scrabbleProject;
 
-import lombok.Data;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -15,12 +14,12 @@ public class Tacka {
     }
 
     public Tacka(ListOfLetters list) {
-        this.playerListOfLetters = HelperMethods.listOfSevenPlayerLetters(list);
+        this.playerListOfLetters = HelperMethods.createListOfPlayerLetters(list);
     }
 
-    public List<Letters> creatingPlayerList(ListOfLetters list){
+    public List<Letters> createPlayerList(ListOfLetters list){
 
-        return HelperMethods.listOfSevenPlayerLetters(list);
+        return HelperMethods.createListOfPlayerLetters(list);
     }
 
     public void printList(){

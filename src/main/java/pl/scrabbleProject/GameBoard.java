@@ -1,10 +1,6 @@
 package pl.scrabbleProject;
 
-import lombok.Data;
 import lombok.Getter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class GameBoard {
 
@@ -29,13 +25,13 @@ public class GameBoard {
         }
     }
 
-    public String addingLetter(int posX, int posY, Letters letter,Tacka playerListOfLetter, ListOfLetters bagOfLetters){
+    public String addLetter(int posX, int posY, Letters letter, Tacka playerListOfLetter, ListOfLetters bagOfLetters){
 
         StringBuilder word = new StringBuilder();
         if (playerListOfLetter.getPlayerListOfLetters().contains(letter)){
             this.gameBoard[posX][posY] = letter;
-            HelperMethods.removingLetterFromPlayerListOfLetter(playerListOfLetter.getPlayerListOfLetters(),letter);
-            HelperMethods.drawingNewLetter(playerListOfLetter.getPlayerListOfLetters(),bagOfLetters);
+            HelperMethods.removeLetterFromTacka(playerListOfLetter.getPlayerListOfLetters(),letter);
+            HelperMethods.drawNewLetter(playerListOfLetter.getPlayerListOfLetters(),bagOfLetters);
             word.append(letter.getLetter());
 
         }

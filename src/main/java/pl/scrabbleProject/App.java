@@ -3,8 +3,6 @@ package pl.scrabbleProject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -27,9 +25,9 @@ public class App {
 
 //        playerListOfLetter.getPlayerListOfLetters().add(oneLetter);
         playerListOfLetter.printList();
-        scrabbleBoard.addingLetter(0, 0, oneLetter, playerListOfLetter, bagOfLetters);
-//        scrabbleBoard.addingLetter(0,1,twoLetter,playerListOfLetter,bagOfLetters);
-//        scrabbleBoard.addingLetter(0,2,threeLetter,playerListOfLetter,bagOfLetters);
+        scrabbleBoard.addLetter(0, 0, oneLetter, playerListOfLetter, bagOfLetters);
+//        scrabbleBoard.addLetter(0,1,twoLetter,playerListOfLetter,bagOfLetters);
+//        scrabbleBoard.addLetter(0,2,threeLetter,playerListOfLetter,bagOfLetters);
 
 
         scrabbleBoard.printScrabbleBoard();
