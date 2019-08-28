@@ -7,19 +7,21 @@ import java.util.List;
 public class HelperMethods {
 
 
-    public static List<Letters> createListOfPlayerLetters(ListOfLetters lettersList){
+    public static List<Letters> createListOfPlayerLetters(ListOfLetters lettersList) {
 
         List<Letters> playerList = new ArrayList<>();
-        for(int i = 0; i < 7; i++) {
+        for (int i = 0; i < 7; i++) {
             shuffleLettersAddNewLetterToPlayerList(playerList, lettersList);
             removeLetterFromBag(lettersList);
         }
         return playerList;
     }
 
-    public static void drawNewLetter(List<Letters> playerListOfLetters, ListOfLetters lettersList){
+    public static void drawNewLetter(List<Letters> playerListOfLetters, ListOfLetters lettersList) {
+        for (int i = 0; i < 7 - playerListOfLetters.size(); i++) {
             shuffleLettersAddNewLetterToPlayerList(playerListOfLetters, lettersList);
             removeLetterFromBag(lettersList);
+        }
 
     }
 
@@ -32,23 +34,19 @@ public class HelperMethods {
         lettersList.getLettersList().remove(0);
     }
 
-    public static void removeLetterFromTacka(List<Letters> playerListOfLetters, Letters letter){
-        if(!playerListOfLetters.isEmpty()){
+    public static void removeLetterFromTacka(List<Letters> playerListOfLetters, Letters letter) {
+        if (!playerListOfLetters.isEmpty()) {
             playerListOfLetters.remove(letter);
-        }else
+        } else
             System.out.println("No more Letters");
 
     }
 
-    public static void exchengeLetter(List<Letters> playerListOfLetters, ListOfLetters lettersList, Letters letter){
-        removeLetterFromTacka(playerListOfLetters,letter);
-        shuffleLettersAddNewLetterToPlayerList(playerListOfLetters,lettersList);
+    public static void exchengeLetter(List<Letters> playerListOfLetters, ListOfLetters lettersList, Letters letter) {
+        removeLetterFromTacka(playerListOfLetters, letter);
+        shuffleLettersAddNewLetterToPlayerList(playerListOfLetters, lettersList);
 
     }
-
-
-
-
 
 
 }

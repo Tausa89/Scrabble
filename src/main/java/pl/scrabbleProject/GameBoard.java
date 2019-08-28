@@ -28,13 +28,12 @@ public class GameBoard {
     public String addLetter(int posX, int posY, Letters letter, Tacka playerListOfLetter, ListOfLetters bagOfLetters){
 
         StringBuilder word = new StringBuilder();
-        if (playerListOfLetter.getPlayerListOfLetters().contains(letter)){
+        while (playerListOfLetter.getPlayerListOfLetters().contains(letter)) {
             this.gameBoard[posX][posY] = letter;
             HelperMethods.removeLetterFromTacka(playerListOfLetter.getPlayerListOfLetters(),letter);
-            HelperMethods.drawNewLetter(playerListOfLetter.getPlayerListOfLetters(),bagOfLetters);
             word.append(letter.getLetter());
-
         }
+        HelperMethods.drawNewLetter(playerListOfLetter.getPlayerListOfLetters(), bagOfLetters);
 
         return word.toString();
     }
