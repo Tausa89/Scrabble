@@ -4,6 +4,7 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class GameBoard {
 
@@ -46,8 +47,33 @@ public class GameBoard {
         for (int i = 0; i < word.size(); i++) {
             numberOfPoints += word.get(i).getPointsForLetter();
         }
-        System.out.println(numberOfPoints);
         return numberOfPoints;
+    }
+
+    public List<Letters> addLetter(Tacka listOfLetters, ListOfLetters bagOfLetters) {
+        Scanner input = new Scanner(System.in);
+        List<Letters> word = new ArrayList<>();
+        while (true) {
+            System.out.println("cord x");
+            int posX = Integer.parseInt(input.nextLine());
+            if (posX == 16) {
+                break;
+            }
+            System.out.println("cord y");
+            int posY = Integer.parseInt(input.nextLine());
+            System.out.println("Wrote a letter");
+            char letter = input.nextLine().toUpperCase().charAt(0);
+            for (int i = 0; i < listOfLetters.getPlayerListOfLetters().size(); i++) {
+                if (listOfLetters.getPlayerListOfLetters().get(i).getLetter() == letter) {
+                    this.gameBoard[posX][posY] = listOfLetters.getPlayerListOfLetters().get(i);
+                    word.add(listOfLetters.getPlayerListOfLetters().get(i));
+                    HelperMethods.removeLetterFromTacka(listOfLetters.getPlayerListOfLetters(), listOfLetters.getPlayerListOfLetters().get(i));
+
+                }
+            }
+        }
+        HelperMethods.drawNewLetter(listOfLetters.getPlayerListOfLetters(), bagOfLetters);
+        return word;
     }
 
 

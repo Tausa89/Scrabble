@@ -18,7 +18,8 @@ public class HelperMethods {
     }
 
     public static void drawNewLetter(List<Letters> playerListOfLetters, ListOfLetters lettersList) {
-        for (int i = 0; i < 7 - playerListOfLetters.size(); i++) {
+        int listSize = 7 - playerListOfLetters.size();
+        for (int i = 0; i < listSize; i++) {
             shuffleLettersAddNewLetterToPlayerList(playerListOfLetters, lettersList);
             removeLetterFromBag(lettersList);
         }
