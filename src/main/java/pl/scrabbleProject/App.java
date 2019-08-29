@@ -25,7 +25,8 @@ public class App {
 
 //        playerListOfLetter.getPlayerListOfLetters().add(oneLetter);
         playerListOfLetter.printList();
-        scrabbleBoard.addLetter(0, 0, oneLetter, playerListOfLetter, bagOfLetters);
+
+        scrabbleBoard.countPoints(scrabbleBoard.addLetter(0, 0, oneLetter, playerListOfLetter, bagOfLetters));
 //        scrabbleBoard.addLetter(0,1,twoLetter,playerListOfLetter,bagOfLetters);
 //        scrabbleBoard.addLetter(0,2,threeLetter,playerListOfLetter,bagOfLetters);
 

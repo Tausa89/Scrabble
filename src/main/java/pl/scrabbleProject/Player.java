@@ -1,15 +1,22 @@
 package pl.scrabbleProject;
 
-public class Player {
+import lombok.Data;
+
+public @Data
+class Player {
 
     private String name;
     private int numberOfWins;
     private int numberOfDraws;
     private int numberOfLoses;
     private int currentAmountOfPoints;
+    private boolean playerTurn = true;
 
     public Player(String name) {
         this.name = name;
         this.currentAmountOfPoints = 0;
+        this.numberOfWins = 0;
+        this.numberOfDraws = 0;
+        this.numberOfLoses = 0;
     }
 }
