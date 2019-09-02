@@ -11,6 +11,7 @@ class Player {
     private int numberOfLoses;
     private int currentAmountOfPoints;
     private boolean playerTurn = true;
+    private Tacka playerLetters;
 
     public Player(String name) {
         this.name = name;
@@ -18,5 +19,6 @@ class Player {
         this.numberOfWins = 0;
         this.numberOfDraws = 0;
         this.numberOfLoses = 0;
+
     }
 }

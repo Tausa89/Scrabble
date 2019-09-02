@@ -3,7 +3,6 @@ package pl.scrabbleProject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -21,9 +20,11 @@ public class App {
         GameBoard scrabbleBoard = new GameBoard();
         Tacka playerListOfLetter = new Tacka(bagOfLetters);
         playerListOfLetter.printList();
+        ConsoleController z = new ConsoleController();
 
-        List<Letters> word = scrabbleBoard.addLetter(playerListOfLetter, bagOfLetters);
-        System.out.println(scrabbleBoard.countPoints(word));
+        z.addLetterMenu();
+
+        char letter = scrabbleBoard.addLetter(z.getPosX(), z.getPosX(), z.getLetter(), playerListOfLetter, bagOfLetters);
 
 
 //        Letters oneLetter = new Letters('A', 1);

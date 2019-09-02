@@ -25,3 +25,5 @@ c
 +src/main/java/pl/scrabbleProject/Tacka.java,c\a\ca1782cc779bd78585ffacf4ae0c0ac3fa5dae6c
 c
 3src/test/java/pl/scrabbleProject/GameBoardTest.java,3\a\3abd20fd1b27e1252d95fcca4527ff6eea2b1ab0
+g
+7src/main/java/pl/scrabbleProject/ConsoleController.java,b\4\b4c3025cd6b63aa82e94c426766ec3dcd68a897a
