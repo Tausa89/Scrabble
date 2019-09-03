@@ -2,6 +2,8 @@ package pl.scrabbleProject;
 
 import lombok.Getter;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleController {
@@ -20,27 +22,14 @@ public class ConsoleController {
 
         do {
             System.out.println("Enter coordinates of of your letter starting from row number ");
-            posX = Integer.parseInt(input.nextLine());
+            this.posX = Integer.parseInt(input.nextLine());
             System.out.println("Enter column number ");
-            posY = Integer.parseInt(input.nextLine());
+            this.posY = Integer.parseInt(input.nextLine());
             System.out.println("Please enter the letter you want to add");
-            letter = input.nextLine().toUpperCase().charAt(0);
+            this.letter = input.nextLine().toUpperCase().charAt(0);
             System.out.println("If you want to end write : e to stop or c to continue");
             temp = input.nextLine().toUpperCase().charAt(0);
         } while (temp != 'E');
-//        while (true) {
-//            System.out.println("Enter coordinates of of your letter starting from row number ");
-//            posX = Integer.parseInt(input.nextLine());
-//            System.out.println("Enter column number ");
-//            posY = Integer.parseInt(input.nextLine());
-//            System.out.println("Please enter the letter you want to add");
-//            letter = input.nextLine().toUpperCase().charAt(0);
-//            System.out.println("If you want to end write : e to stop or c to continue");
-//            temp = input.nextLine().toUpperCase().charAt(0);
-//            if (temp == 'E'){
-//                break;
-//            }
-//        }
 
     }
 
@@ -58,5 +47,24 @@ public class ConsoleController {
         System.out.println("Write Your name");
         playerName = input.nextLine();
         return playerName;
+    }
+
+
+    public List<Character> choseLettersToExchange() {
+
+        List<Character> lettersToExchange = new ArrayList<>();
+        char letterToExchange;
+
+        do {
+            System.out.println("Chose which letter you want to exchange");
+            letterToExchange = input.nextLine().toUpperCase().charAt(0);
+            lettersToExchange.add(letterToExchange);
+            System.out.println("One more or that was all? If you want \n" +
+                    "exchange more letter press c if not press e");
+            letterToExchange = input.nextLine().toUpperCase().charAt(0);
+        } while (letterToExchange != 'E');
+
+        return lettersToExchange;
+
     }
 }

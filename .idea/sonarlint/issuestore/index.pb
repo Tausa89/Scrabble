@@ -27,3 +27,5 @@ c
 3src/test/java/pl/scrabbleProject/GameBoardTest.java,3\a\3abd20fd1b27e1252d95fcca4527ff6eea2b1ab0
 g
 7src/main/java/pl/scrabbleProject/ConsoleController.java,b\4\b4c3025cd6b63aa82e94c426766ec3dcd68a897a
+^
+.src/test/java/pl/scrabbleProject/GameTest.java,c\a\ca8bb6a65b6b41e5beea78a31172d4ce5d2ae5bd

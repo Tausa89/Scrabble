@@ -18,13 +18,29 @@ public class App {
 
         ListOfLetters bagOfLetters = new ListOfLetters();
         GameBoard scrabbleBoard = new GameBoard();
-        Tacka playerListOfLetter = new Tacka(bagOfLetters);
-        playerListOfLetter.printList();
+//        Tacka playerListOfLetter = new Tacka(bagOfLetters);
+//        playerListOfLetter.printList();
         ConsoleController z = new ConsoleController();
 
-        z.addLetterMenu();
+        Game game = new Game();
 
-        char letter = scrabbleBoard.addLetter(z.getPosX(), z.getPosX(), z.getLetter(), playerListOfLetter, bagOfLetters);
+        bagOfLetters.pritn();
+        System.out.println("Whole list");
+        Player one = new Player("Tom", bagOfLetters);
+        System.out.println("List after create player list");
+        bagOfLetters.pritn();
+        System.out.println("Player list");
+        one.getPlayerLetters().printList();
+        game.exchangeLetters(new ConsoleController().choseLettersToExchange(), one);
+        System.out.println("player list after exchange");
+        one.getPlayerLetters().printList();
+        System.out.println("bag after exchange");
+        bagOfLetters.pritn();
+
+
+//        z.addLetterMenu();
+//
+//        char letter = scrabbleBoard.addLetter(z.getPosX(), z.getPosX(), z.getLetter(), playerListOfLetter, bagOfLetters);
 
 
 //        Letters oneLetter = new Letters('A', 1);
@@ -43,8 +59,9 @@ public class App {
         scrabbleBoard.printScrabbleBoard();
         System.out.println("" +
                 "");
-        playerListOfLetter.printList();
+//        playerListOfLetter.printList();
 
+        one.getPlayerLetters().printList();
 
     }
 }
