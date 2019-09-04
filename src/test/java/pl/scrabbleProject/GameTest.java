@@ -7,7 +7,7 @@ import java.util.List;
 
 public class GameTest {
 
-    List<Character> listOfLettersToExcgange;
+    List<Character> listOfLettersToExchange;
     Player player;
     ListOfLetters bagOfLetters;
     Tacka tacka;
@@ -16,7 +16,7 @@ public class GameTest {
 
     @Before
     public void setUp() {
-        listOfLettersToExcgange.add('A');
+        listOfLettersToExchange.add('A');
         list.add(new Letters('A', 1));
         player = new Player("Tom", bagOfLetters);
 
@@ -24,7 +24,8 @@ public class GameTest {
 
     @Test
     public void shouldExchangeLetter() {
-        game.exchangeLetters(listOfLettersToExcgange, player);
+        game.exchangeLetters(listOfLettersToExchange, player);
+
     }
 
 

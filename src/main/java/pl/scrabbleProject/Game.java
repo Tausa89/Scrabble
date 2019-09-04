@@ -68,4 +68,13 @@ public class Game {
         HelperMethods.drawNewLetter(player.getPlayerLetters().getPlayerListOfLetters(), bagOfLetters);
     }
 
+    public void removeAddedLetter(int posX, int posY, Player player) {
+
+        if (board.getGameBoard()[posX][posY] != null) {
+            player.getPlayerLetters().getPlayerListOfLetters().add(board.getGameBoard()[posX][posY]);
+            board.getGameBoard()[posX][posY] = null;
+        }
+
+    }
+
 }

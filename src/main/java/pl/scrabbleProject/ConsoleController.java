@@ -67,4 +67,29 @@ public class ConsoleController {
         return lettersToExchange;
 
     }
+
+//    public Character choseLetterToRemoveFromBoard(){
+//
+//        char letterToRemove;
+//        System.out.println("Which letter you want to remove?");
+//        letterToRemove = input.nextLine().toUpperCase().charAt(0);
+//
+//        return letterToRemove;
+//    }
+//
+//
+//    public boolean addHelperContinue(){
+//        String temp;
+//        System.out.println("Do you want continue? If yes press y if not press n?");
+//        temp = input.nextLine().toUpperCase();
+//        return temp.equals("Y");
+//    }
+
+    public void chosePositionOfLetterToRemove() {
+        System.out.println("Row number");
+        posX = Integer.parseInt(input.nextLine());
+        System.out.println("Column number");
+        posY = Integer.parseInt(input.nextLine());
+
+    }
 }
