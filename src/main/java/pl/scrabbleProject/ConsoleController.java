@@ -87,9 +87,16 @@ public class ConsoleController {
 
     public void chosePositionOfLetterToRemove() {
         System.out.println("Row number");
-        posX = Integer.parseInt(input.nextLine());
+        this.posX = Integer.parseInt(input.nextLine());
         System.out.println("Column number");
-        posY = Integer.parseInt(input.nextLine());
+        this.posY = Integer.parseInt(input.nextLine());
 
+    }
+
+    public int printPlayerMenu() {
+        System.out.println("If you want to add letters to the board press 1\n");
+        System.out.println("If you want to exchange letter press 2\n");
+        System.out.println("If you want to skip your turn press 3\n");
+        return Integer.parseInt(input.nextLine());
     }
 }

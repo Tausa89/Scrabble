@@ -17,10 +17,10 @@ public class HelperMethods {
         return playerList;
     }
 
-    public static void drawNewLetter(List<Letters> playerListOfLetters, ListOfLetters lettersList) {
-        int listSize = 7 - playerListOfLetters.size();
+    public static void drawNewLetter(Player player, ListOfLetters lettersList) {
+        int listSize = 7 - player.getPlayerLetters().getPlayerListOfLetters().size();
         for (int i = 0; i < listSize; i++) {
-            shuffleLettersAddNewLetterToPlayerList(playerListOfLetters, lettersList);
+            shuffleLettersAddNewLetterToPlayerList(player.getPlayerLetters().getPlayerListOfLetters(), lettersList);
             removeLetterFromBag(lettersList);
         }
 

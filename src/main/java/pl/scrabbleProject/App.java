@@ -16,39 +16,29 @@ public class App {
         Logger logger = LoggerFactory.getLogger(App.class);
         logger.info("Hello World");
 
-        ListOfLetters bagOfLetters = new ListOfLetters();
-        GameBoard scrabbleBoard = new GameBoard();
-//        Tacka playerListOfLetter = new Tacka(bagOfLetters);
-//        playerListOfLetter.printList();
-        ConsoleController z = new ConsoleController();
 
+        ListOfLetters bagOfLetter = new ListOfLetters();
+        GameBoard board = new GameBoard();
+        ConsoleController console = new ConsoleController();
         Game game = new Game();
 
-//        bagOfLetters.pritn();
-//        System.out.println("Whole list");
-//        Player one = new Player("Tom", bagOfLetters);
-//        System.out.println("List after create player list");
-//        bagOfLetters.pritn();
-//        System.out.println("Player list");
-//        one.getPlayerLetters().printList();
-//        game.exchangeLetters(z.choseLettersToExchange(), one);
-//        System.out.println("player list after exchange");
-//        one.getPlayerLetters().printList();
-//        System.out.println("bag after exchange");
-//        bagOfLetters.pritn();
 
-
-        z.addLetterMenu();
-
-
-
-
-
-        scrabbleBoard.printScrabbleBoard();
+        bagOfLetter.pritn();
+        Player one = new Player("Tom", bagOfLetter);
+        System.out.println("***************");
+        one.getPlayerLetters().printList();
+        board.printScrabbleBoard();
         System.out.println("" +
                 "");
-//        playerListOfLetter.printList();
+        console.addLetterMenu();
+        board.addLetter(console.getPosX(), console.getPosY(), console.getLetter(), one.getPlayerLetters(), bagOfLetter);
+        board.printScrabbleBoard();
         one.getPlayerLetters().printList();
+        console.chosePositionOfLetterToRemove();
+        game.removeAddedLetter(console.getPosX(), console.getPosY(), one, board);
+        board.printScrabbleBoard();
+        one.getPlayerLetters().printList();
+
 
     }
 }

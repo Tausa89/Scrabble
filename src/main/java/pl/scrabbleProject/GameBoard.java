@@ -92,7 +92,7 @@ public class GameBoard {
 //        return word;
 //    }
 
-    public char addLetter(int posX, int posY, char letter, Tacka playerListOfLetter, ListOfLetters bagOfLetters) {
+    public char addLetter(int posX, int posY, char letter, Tacka playerListOfLetter) {
 
         char addedLetter = 'x';
         for (int i = 0; i < playerListOfLetter.getPlayerListOfLetters().size(); i++) {
@@ -103,7 +103,6 @@ public class GameBoard {
 
             }
         }
-        HelperMethods.drawNewLetter(playerListOfLetter.getPlayerListOfLetters(), bagOfLetters);
 
         return addedLetter;
     }
