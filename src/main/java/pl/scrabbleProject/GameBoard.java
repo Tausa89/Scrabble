@@ -31,8 +31,8 @@ public class GameBoard {
 
     public int countPoints(List<Letters> word) {
         int numberOfPoints = 0;
-        for (int i = 0; i < word.size(); i++) {
-            numberOfPoints += word.get(i).getPointsForLetter();
+        for (Letters points : word) {
+            numberOfPoints += points.getPointsForLetter();
         }
         return numberOfPoints;
     }
@@ -52,6 +52,15 @@ public class GameBoard {
         }
 
         return addedLetter;
+    }
+
+    public void removeAddedLetter(int posX, int posY, Player player, GameBoard board) {
+
+        if (board.getGameBoard()[posX][posY] != null) {
+            player.getPlayerLetters().getPlayerListOfLetters().add(board.getGameBoard()[posX][posY]);
+            board.getGameBoard()[posX][posY] = null;
+        }
+
     }
 
 

@@ -63,7 +63,7 @@ public class Game {
                 console.addLetterMenu();
                 board.addLetter(console.getPosX(), console.getPosY(), console.getLetter(), player.getPlayerLetters());
                 console.chosePositionOfLetterToRemove();
-                removeAddedLetter(console.getPosX(), console.getPosY(), player, board);
+                board.removeAddedLetter(console.getPosX(), console.getPosY(), player, board);
                 HelperMethods.drawNewLetter(player, bagOfLetters);
                 break;
             case 2:
@@ -82,14 +82,7 @@ public class Game {
 
 
 
-    public void removeAddedLetter(int posX, int posY, Player player, GameBoard board) {
 
-        if (board.getGameBoard()[posX][posY] != null) {
-            player.getPlayerLetters().getPlayerListOfLetters().add(board.getGameBoard()[posX][posY]);
-            board.getGameBoard()[posX][posY] = null;
-        }
-
-    }
 
     public void skipTurn() {
 //        Need to be implemented.
