@@ -29,5 +29,14 @@ public class Tacka {
         }
     }
 
+    public List<Character> getListOfChars() {
+
+        List<Character> listOfChars = new ArrayList<>();
+        for (Letters letter : playerListOfLetters) {
+            listOfChars.add(letter.getLetter());
+        }
+        return listOfChars;
+    }
+
 
 }

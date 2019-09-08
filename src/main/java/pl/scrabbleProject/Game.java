@@ -1,16 +1,23 @@
 package pl.scrabbleProject;
 
-import java.util.List;
-
 public class Game {
 
     GameBoard board = new GameBoard();
     ConsoleController console = new ConsoleController();
     ListOfLetters bagOfLetters = new ListOfLetters();
 
-    public void gameloop() {
+    public void gameLoop() {
 
-        setNumberOfPlayers(console.choseNumberOfPlayers());
+//        while (true) {
+//            printGameMenu();
+//            setNumberOfPlayers(console.choseNumberOfPlayers());
+//            setPlayersTurns();
+//            board.print();
+//            printListOfPlayers();
+//
+//
+//        }
+
 
     }
 
@@ -60,7 +67,7 @@ public class Game {
                 HelperMethods.drawNewLetter(player, bagOfLetters);
                 break;
             case 2:
-                exchangeLetters(console.choseLettersToExchange(), player);
+                bagOfLetters.exchangeLetters(console.choseLettersToExchange(), player);
                 HelperMethods.drawNewLetter(player, bagOfLetters);
                 break;
             case 3:
@@ -73,16 +80,7 @@ public class Game {
 
     }
 
-    public void exchangeLetters(List<Character> lettersToExchange, Player player) {
-        for (int i = 0; i < player.getPlayerLetters().getPlayerListOfLetters().size(); i++) {
-            for (int j = 0; j < lettersToExchange.size(); j++) {
-                if (player.getPlayerLetters().getPlayerListOfLetters().get(i).getLetter() == lettersToExchange.get(j)) {
-                    player.getPlayerLetters().getPlayerListOfLetters().remove(i);
 
-                }
-            }
-        }
-    }
 
     public void removeAddedLetter(int posX, int posY, Player player, GameBoard board) {
 

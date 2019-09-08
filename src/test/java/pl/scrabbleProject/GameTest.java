@@ -1,7 +1,6 @@
 package pl.scrabbleProject;
 
 import org.junit.Before;
-import org.junit.Test;
 
 import java.util.List;
 
@@ -22,11 +21,7 @@ public class GameTest {
 
     }
 
-    @Test
-    public void shouldExchangeLetter() {
-        game.exchangeLetters(listOfLettersToExchange, player);
 
-    }
 
 
 }

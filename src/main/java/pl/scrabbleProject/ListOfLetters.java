@@ -1,6 +1,5 @@
 package pl.scrabbleProject;
 
-import lombok.Data;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -68,4 +67,14 @@ public class ListOfLetters {
             System.out.println(letter.getLetter());
         }
     }
+
+    public void exchangeLetters(List<Character> lettersToExchange, Player player) {
+        player.getPlayerLetters().getListOfChars().removeAll(lettersToExchange);
+    }
+
+    public void exchangeLetters(Player player) {
+        player.getPlayerLetters().getPlayerListOfLetters().clear();
+    }
+
+
 }
