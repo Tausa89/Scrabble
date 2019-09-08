@@ -38,7 +38,7 @@ public class GameBoard {
     }
 
 
-    public char addLetter(int posX, int posY, char letter, Tacka playerListOfLetter) {
+    public char addLetter(int posX, int posY, char letter, Rack playerListOfLetter) {
 
 
         char addedLetter = 'x';

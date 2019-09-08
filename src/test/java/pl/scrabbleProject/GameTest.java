@@ -9,7 +9,7 @@ public class GameTest {
     List<Character> listOfLettersToExchange;
     Player player;
     ListOfLetters bagOfLetters;
-    Tacka tacka;
+    Rack rack;
     List<Letters> list;
     Game game;
 

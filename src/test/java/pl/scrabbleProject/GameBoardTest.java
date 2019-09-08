@@ -10,7 +10,7 @@ import java.util.List;
 public class GameBoardTest {
 
     private GameBoard board;
-    private Tacka playerLetters;
+    private Rack playerLetters;
     private Letters letter;
     private Letters lettertwo;
     private Letters letterthree;
@@ -20,7 +20,7 @@ public class GameBoardTest {
     @Before
     public void setUp(){
         board = new GameBoard();
-        playerLetters = new Tacka();
+        playerLetters = new Rack();
         listOfLetters = new ArrayList<>();
         letter = new Letters('A',1);
         lettertwo = new Letters('B', 2);

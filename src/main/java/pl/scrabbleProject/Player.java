@@ -11,7 +11,7 @@ class Player {
     private int numberOfLoses;
     private int currentAmountOfPoints;
     private boolean playerTurn = true;
-    private Tacka playerLetters;
+    private Rack playerLetters;
 
     public Player(String name, ListOfLetters bagOfLetters) {
         this.name = name;
@@ -19,7 +19,7 @@ class Player {
         this.numberOfWins = 0;
         this.numberOfDraws = 0;
         this.numberOfLoses = 0;
-        this.playerLetters = new Tacka(bagOfLetters);
+        this.playerLetters = new Rack(bagOfLetters);
 
     }
 }

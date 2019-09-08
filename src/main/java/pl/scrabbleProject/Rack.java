@@ -5,15 +5,15 @@ import lombok.Getter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tacka {
+public class Rack {
 
     private @Getter List<Letters> playerListOfLetters;
 
-    public Tacka(){
+    public Rack() {
         playerListOfLetters = new ArrayList<>();
     }
 
-    public Tacka(ListOfLetters list) {
+    public Rack(ListOfLetters list) {
         this.playerListOfLetters = HelperMethods.createListOfPlayerLetters(list);
     }
 
