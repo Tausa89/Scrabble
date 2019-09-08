@@ -17,18 +17,18 @@ public class HelperMethods {
         return playerList;
     }
 
-    public static void drawNewLetter(Player player, ListOfLetters lettersList) {
+    public static void drawNewLetter(Player player, ListOfLetters bagOfLetters) {
         int listSize = 7 - player.getPlayerLetters().getPlayerListOfLetters().size();
         for (int i = 0; i < listSize; i++) {
-            shuffleLettersAddNewLetterToPlayerList(player.getPlayerLetters().getPlayerListOfLetters(), lettersList);
-            removeLetterFromBag(lettersList);
+            shuffleLettersAddNewLetterToPlayerList(player.getPlayerLetters().getPlayerListOfLetters(), bagOfLetters);
+            removeLetterFromBag(bagOfLetters);
         }
 
     }
 
-    public static void shuffleLettersAddNewLetterToPlayerList(List<Letters> playerListOfLetters, ListOfLetters lettersList) {
-        Collections.shuffle(lettersList.getLettersList());
-        playerListOfLetters.add(lettersList.getLettersList().get(0));
+    public static void shuffleLettersAddNewLetterToPlayerList(List<Letters> playerListOfLetters, ListOfLetters bagOfLetters) {
+        Collections.shuffle(bagOfLetters.getLettersList());
+        playerListOfLetters.add(bagOfLetters.getLettersList().get(0));
     }
 
     public static void removeLetterFromBag(ListOfLetters lettersList) {
@@ -40,12 +40,6 @@ public class HelperMethods {
             playerListOfLetters.remove(letter);
         } else
             System.out.println("No more Letters");
-
-    }
-
-    public static void exchengeLetter(List<Letters> playerListOfLetters, ListOfLetters lettersList, Letters letter) {
-        removeLetterFromTacka(playerListOfLetters, letter);
-        shuffleLettersAddNewLetterToPlayerList(playerListOfLetters, lettersList);
 
     }
 
