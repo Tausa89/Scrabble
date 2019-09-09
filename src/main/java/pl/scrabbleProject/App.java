@@ -18,14 +18,15 @@ public class App {
         board.print();
         ListOfLetters bagOfLetters = new ListOfLetters();
 
-        Player player = new Player("Tom", bagOfLetters);
-        System.out.println("" +
-                "");
+//        Player player = new Player("Tom", bagOfLetters);
+//        System.out.println("" +
+//                "");
+//
+//        player.getPlayerLetters().printList();
+//        bagOfLetters.exchangeLetters(controller.choseLettersToExchange(), player);
+//        System.out.println("*************************");
+//        player.getPlayerLetters().printList();
 
-        player.getPlayerLetters().printList();
-        bagOfLetters.exchangeLetters(controller.choseLettersToExchange(), player);
-        System.out.println("*************************");
-        player.getPlayerLetters().printList();
 
 
 

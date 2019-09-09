@@ -22,4 +22,5 @@ class Player {
         this.playerLetters = new Rack(bagOfLetters);
 
     }
+
 }

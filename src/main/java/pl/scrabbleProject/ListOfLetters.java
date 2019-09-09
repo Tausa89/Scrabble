@@ -67,15 +67,18 @@ public class ListOfLetters {
             System.out.println(letter.getLetter());
         }
     }
+    //ConcurrentModificationException what next?
 
     public void exchangeLetters(List<Character> lettersToExchange, Player player) {
+        List<Letters> tempList = new ArrayList<>();
         for (Letters letter : player.getPlayerLetters().getPlayerListOfLetters()) {
             for (char letterToExchange : lettersToExchange) {
                 if (letter.getLetter() == letterToExchange) {
-                    player.getPlayerLetters().getPlayerListOfLetters().remove(letter);
+                    tempList.add(letter);
                 }
             }
         }
+        player.getPlayerLetters().getPlayerListOfLetters().removeAll(tempList);
 
     }
 

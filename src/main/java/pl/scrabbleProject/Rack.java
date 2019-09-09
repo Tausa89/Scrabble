@@ -29,5 +29,7 @@ public class Rack {
         }
     }
 
-
+    public void setPlayerListOfLetters(List<Letters> playerListOfLetters) {
+        this.playerListOfLetters = playerListOfLetters;
+    }
 }
