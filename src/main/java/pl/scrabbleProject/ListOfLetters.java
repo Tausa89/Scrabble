@@ -67,7 +67,7 @@ public class ListOfLetters {
             System.out.println(letter.getLetter());
         }
     }
-    //ConcurrentModificationException what next?
+    //ConcurrentModificationException?
 
     public void exchangeLetters(List<Character> lettersToExchange, Player player) {
         List<Letters> tempList = new ArrayList<>();

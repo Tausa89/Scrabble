@@ -42,12 +42,11 @@ public class GameBoard {
 
 
         char addedLetter = 'x';
-        for (int i = 0; i < playerListOfLetter.getPlayerListOfLetters().size(); i++) {
-            if (playerListOfLetter.getPlayerListOfLetters().get(i).getLetter() == letter) {
-                this.gameBoard[posX][posY] = playerListOfLetter.getPlayerListOfLetters().get(i);
-                addedLetter = playerListOfLetter.getPlayerListOfLetters().get(i).getLetter();
-                HelperMethods.removeLetterFromTacka(playerListOfLetter.getPlayerListOfLetters(), playerListOfLetter.getPlayerListOfLetters().get(i));
-
+        for (Letters letterToAdd : playerListOfLetter.getPlayerListOfLetters()) {
+            if (letterToAdd.getLetter() == letter) {
+                this.gameBoard[posX][posY] = letterToAdd;
+                addedLetter = letterToAdd.getLetter();
+                HelperMethods.removeLetterFromTacka(playerListOfLetter.getPlayerListOfLetters(), letterToAdd);
             }
         }
 
