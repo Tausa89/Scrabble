@@ -69,7 +69,14 @@ public class ListOfLetters {
     }
 
     public void exchangeLetters(List<Character> lettersToExchange, Player player) {
-        player.getPlayerLetters().getListOfChars().removeAll(lettersToExchange);
+        for (Letters letter : player.getPlayerLetters().getPlayerListOfLetters()) {
+            for (char letterToExchange : lettersToExchange) {
+                if (letter.getLetter() == letterToExchange) {
+                    player.getPlayerLetters().getPlayerListOfLetters().remove(letter);
+                }
+            }
+        }
+
     }
 
     public void exchangeLetters(Player player) {

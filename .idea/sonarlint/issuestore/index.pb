@@ -21,11 +21,11 @@ c
 ,src/main/java/pl/scrabbleProject/Player.java,2\d\2d020c7a54b239001af0ef6e681f3655f179f0aa
 ?
 ScrabblePOM.iml,a\6\a6727073621adb9c2add374769da076cb8cb8fc6
-[
-+src/main/java/pl/scrabbleProject/Tacka.java,c\a\ca1782cc779bd78585ffacf4ae0c0ac3fa5dae6c
 c
 3src/test/java/pl/scrabbleProject/GameBoardTest.java,3\a\3abd20fd1b27e1252d95fcca4527ff6eea2b1ab0
 g
 7src/main/java/pl/scrabbleProject/ConsoleController.java,b\4\b4c3025cd6b63aa82e94c426766ec3dcd68a897a
 ^
 .src/test/java/pl/scrabbleProject/GameTest.java,c\a\ca8bb6a65b6b41e5beea78a31172d4ce5d2ae5bd
+Z
+*src/main/java/pl/scrabbleProject/Rack.java,c\5\c53c6643df2d28e86f5c28b43a6ecb6be888d9fe

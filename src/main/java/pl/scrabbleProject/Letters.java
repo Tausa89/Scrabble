@@ -1,8 +1,10 @@
 package pl.scrabbleProject;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
-public class Letters {
+public @EqualsAndHashCode
+class Letters {
 
     private @Getter char letter;
     private @Getter int pointsForLetter;
@@ -20,18 +22,7 @@ public class Letters {
         return "" + letter;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Letters)) return false;
-        Letters letters = (Letters) o;
-        return getLetter() == letters.getLetter();
-    }
 
-    @Override
-    public int hashCode() {
-        return (int) getLetter();
-    }
 
     //    public List<Letters> lettersList(){
 //
