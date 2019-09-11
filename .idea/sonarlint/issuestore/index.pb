@@ -29,3 +29,5 @@ g
 .src/test/java/pl/scrabbleProject/GameTest.java,c\a\ca8bb6a65b6b41e5beea78a31172d4ce5d2ae5bd
 Z
 *src/main/java/pl/scrabbleProject/Rack.java,c\5\c53c6643df2d28e86f5c28b43a6ecb6be888d9fe
+f
+6src/test/java/pl/scrabbleProject/ListOfLetterTest.java,1\0\10c6d865cee073ed92cd8d56a99bdd0a49da3aa7

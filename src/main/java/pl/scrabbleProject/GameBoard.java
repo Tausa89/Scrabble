@@ -6,7 +6,8 @@ import java.util.List;
 
 public class GameBoard {
 
-    private @Getter Letters[][] gameBoard;
+    private @Getter
+    Letters[][] gameBoard;
 
 
     public GameBoard() {
@@ -16,13 +17,13 @@ public class GameBoard {
 
     public void print() {
 
-        for(int i = 0; i < 15; i++){
+        for (int i = 0; i < 15; i++) {
             System.out.println();
-            for (int j = 0; j <15; j++){
+            for (int j = 0; j < 15; j++) {
                 System.out.print(" ");
-                if(this.gameBoard[i][j]==null){
+                if (this.gameBoard[i][j] == null) {
                     System.out.print(".");
-                }else
+                } else
                     System.out.print(this.gameBoard[i][j].toString());
             }
         }

@@ -99,4 +99,10 @@ public class ConsoleController {
         System.out.println("If you want to skip your turn press 3\n");
         return Integer.parseInt(input.nextLine());
     }
+
+    public void printPlayerList(List<Player> listOfPlayers) {
+        for (Player player : listOfPlayers) {
+            System.out.println(player.getName());
+        }
+    }
 }

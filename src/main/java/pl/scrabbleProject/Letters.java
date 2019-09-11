@@ -6,10 +6,12 @@ import lombok.Getter;
 public @EqualsAndHashCode
 class Letters {
 
-    private @Getter char letter;
-    private @Getter int pointsForLetter;
+    private @Getter
+    char letter;
+    private @Getter
+    int pointsForLetter;
 
-    public Letters(){
+    public Letters() {
     }
 
     public Letters(char letter, int pointsForLetter) {
@@ -21,7 +23,6 @@ class Letters {
     public String toString() {
         return "" + letter;
     }
-
 
 
     //    public List<Letters> lettersList(){

@@ -1,5 +1,8 @@
 package pl.scrabbleProject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Game {
 
     GameBoard board = new GameBoard();
@@ -21,37 +24,47 @@ public class Game {
 
     }
 
-    private void setNumberOfPlayers(int numberOfPlayers) {
+    private List<Player> setNumberOfPlayers(int numberOfPlayers) {
 
-        Player playerOne;
-        Player playerTwo;
-        Player playerThree;
-        Player playerFour;
 
-        switch (numberOfPlayers) {
-            case 2:
-                playerOne = new Player(console.chosePlayerName(), bagOfLetters);
-                playerTwo = new Player(console.chosePlayerName(), bagOfLetters);
-//                setFirstPlayer();
-                break;
-            case 3:
-                playerOne = new Player(console.chosePlayerName(), bagOfLetters);
-                playerTwo = new Player(console.chosePlayerName(), bagOfLetters);
-                playerThree = new Player(console.chosePlayerName(), bagOfLetters);
-                //                setFirstPlayer();
-                break;
-            case 4:
-                playerOne = new Player(console.chosePlayerName(), bagOfLetters);
-                playerTwo = new Player(console.chosePlayerName(), bagOfLetters);
-                playerThree = new Player(console.chosePlayerName(), bagOfLetters);
-                playerFour = new Player(console.chosePlayerName(), bagOfLetters);
-                //                setFirstPlayer();
-                break;
-            default:
-                System.out.println("Wrong number of players");
-                break;
+//        Player playerOne;
+//        Player playerTwo;
+//        Player playerThree;
+//        Player playerFour;
 
+        List<Player> listOfPlayers = new ArrayList<>();
+
+        for (int i = 0; i < numberOfPlayers; i++) {
+            listOfPlayers.add(new Player(console.chosePlayerName(), bagOfLetters));
         }
+
+        return listOfPlayers;
+
+
+//        switch (numberOfPlayers) {
+//            case 2:
+//                playerOne = new Player(console.chosePlayerName(), bagOfLetters);
+//                playerTwo = new Player(console.chosePlayerName(), bagOfLetters);
+////                setFirstPlayer();
+//                break;
+//            case 3:
+//                playerOne = new Player(console.chosePlayerName(), bagOfLetters);
+//                playerTwo = new Player(console.chosePlayerName(), bagOfLetters);
+//                playerThree = new Player(console.chosePlayerName(), bagOfLetters);
+//                //                setFirstPlayer();
+//                break;
+//            case 4:
+//                playerOne = new Player(console.chosePlayerName(), bagOfLetters);
+//                playerTwo = new Player(console.chosePlayerName(), bagOfLetters);
+//                playerThree = new Player(console.chosePlayerName(), bagOfLetters);
+//                playerFour = new Player(console.chosePlayerName(), bagOfLetters);
+//                //                setFirstPlayer();
+//                break;
+//            default:
+//                System.out.println("Wrong number of players");
+//                break;
+//
+//        }
 
     }
 
@@ -79,9 +92,6 @@ public class Game {
         }
 
     }
-
-
-
 
 
     public void skipTurn() {
