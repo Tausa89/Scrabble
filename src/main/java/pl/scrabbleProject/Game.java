@@ -27,10 +27,6 @@ public class Game {
     private List<Player> setNumberOfPlayers(int numberOfPlayers) {
 
 
-//        Player playerOne;
-//        Player playerTwo;
-//        Player playerThree;
-//        Player playerFour;
 
         List<Player> listOfPlayers = new ArrayList<>();
 
@@ -40,31 +36,6 @@ public class Game {
 
         return listOfPlayers;
 
-
-//        switch (numberOfPlayers) {
-//            case 2:
-//                playerOne = new Player(console.chosePlayerName(), bagOfLetters);
-//                playerTwo = new Player(console.chosePlayerName(), bagOfLetters);
-////                setFirstPlayer();
-//                break;
-//            case 3:
-//                playerOne = new Player(console.chosePlayerName(), bagOfLetters);
-//                playerTwo = new Player(console.chosePlayerName(), bagOfLetters);
-//                playerThree = new Player(console.chosePlayerName(), bagOfLetters);
-//                //                setFirstPlayer();
-//                break;
-//            case 4:
-//                playerOne = new Player(console.chosePlayerName(), bagOfLetters);
-//                playerTwo = new Player(console.chosePlayerName(), bagOfLetters);
-//                playerThree = new Player(console.chosePlayerName(), bagOfLetters);
-//                playerFour = new Player(console.chosePlayerName(), bagOfLetters);
-//                //                setFirstPlayer();
-//                break;
-//            default:
-//                System.out.println("Wrong number of players");
-//                break;
-//
-//        }
 
     }
 
