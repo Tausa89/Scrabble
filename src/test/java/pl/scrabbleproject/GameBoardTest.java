@@ -1,8 +1,12 @@
-package pl.scrabbleProject;
+package pl.scrabbleproject;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import pl.scrabbleproject.game.GameBoard;
+import pl.scrabbleproject.game.Letters;
+import pl.scrabbleproject.game.ListOfLetters;
+import pl.scrabbleproject.game.Rack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +31,7 @@ public class GameBoardTest {
         letterthree = new Letters('C', 3);
         playerLetters.getPlayerListOfLetters().add(letter);
         bagOfLetter = new ListOfLetters();
-        listOfLetters.add(letter);
+        listOfLetters.add(letter);//TODO remove variables, add(new Letters(...));
         listOfLetters.add(lettertwo);
         listOfLetters.add(letterthree);
 

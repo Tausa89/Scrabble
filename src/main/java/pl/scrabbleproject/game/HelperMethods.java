@@ -1,4 +1,4 @@
-package pl.scrabbleProject;
+package pl.scrabbleproject.game;
 
 import java.util.ArrayList;
 import java.util.Collections;

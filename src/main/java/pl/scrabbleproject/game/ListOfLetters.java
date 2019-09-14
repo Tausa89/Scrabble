@@ -1,4 +1,4 @@
-package pl.scrabbleProject;
+package pl.scrabbleproject.game;
 
 import lombok.Getter;
 
@@ -13,12 +13,10 @@ public class ListOfLetters {
 
     public ListOfLetters() {
         this.lettersList = new ArrayList<>();
-        Letters a = new Letters('A', 1);
-        lettersList.add(a);
-        Letters b = new Letters('B', 3);
-        lettersList.add(b);
-        Letters c = new Letters('C', 2);
-        lettersList.add(c);
+        lettersList.add(new Letters('A', 1));
+        lettersList.add(new Letters('B', 3));
+        lettersList.add(new Letters('C', 2));
+        //TODO delete rest of unnecessary variables
         Letters d = new Letters('D', 2);
         lettersList.add(d);
         Letters e = new Letters('E', 1);
@@ -63,7 +61,7 @@ public class ListOfLetters {
     }
 
 
-    public void pritn() {
+    public void pritn() {//TODO fix typo
         for (Letters letter : lettersList) {
             System.out.println(letter.getLetter());
         }
@@ -85,7 +83,6 @@ public class ListOfLetters {
 
     public void exchangeLetters(Player player) {
         player.getPlayerLetters().getPlayerListOfLetters().clear();
-    }
-
+    }//TODO fix name
 
 }

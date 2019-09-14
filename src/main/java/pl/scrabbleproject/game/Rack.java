@@ -1,4 +1,4 @@
-package pl.scrabbleProject;
+package pl.scrabbleproject.game;
 
 import lombok.Getter;
 
@@ -20,12 +20,18 @@ public class Rack {
 
 
     public void printList() {
-        List<Letters> list = this.playerListOfLetters;
-        for (Letters letter : list) {
-            System.out.println(letter.getLetter());
+        System.out.println();
+        for (Letters letter : playerListOfLetters) {
+            System.out.print(letter.getLetter() + " ");
         }
+        System.out.println();
     }
 
+    public boolean remove(char letter) {
+        if (playerListOfLetters.isEmpty()) return false;
+        playerListOfLetters.remove(new Letters(letter));
+        return true;
+    }
     public void setPlayerListOfLetters(List<Letters> playerListOfLetters) {
         this.playerListOfLetters = playerListOfLetters;
     }

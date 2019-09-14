@@ -1,8 +1,11 @@
-package pl.scrabbleProject;
+package pl.scrabbleproject;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import pl.scrabbleproject.game.Letters;
+import pl.scrabbleproject.game.ListOfLetters;
+import pl.scrabbleproject.game.Player;
 
 import java.util.ArrayList;
 import java.util.List;

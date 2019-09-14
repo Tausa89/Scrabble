@@ -1,4 +1,4 @@
-package pl.scrabbleProject;
+package pl.scrabbleproject.game;
 
 import lombok.Data;
 
@@ -21,6 +21,15 @@ class Player {
         this.numberOfLoses = 0;
         this.playerLetters = new Rack(bagOfLetters);
 
+    }
+
+    public Player(String name) {
+        this.name = name;
+        this.currentAmountOfPoints = 0;
+        this.numberOfWins = 0;
+        this.numberOfDraws = 0;
+        this.numberOfLoses = 0;
+        this.playerLetters = new Rack();
     }
 
 }

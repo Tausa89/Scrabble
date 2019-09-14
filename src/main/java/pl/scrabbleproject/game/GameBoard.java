@@ -1,6 +1,7 @@
-package pl.scrabbleProject;
+package pl.scrabbleproject.game;
 
 import lombok.Getter;
+import pl.scrabbleproject.game.dto.AddLetterObject;
 
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class GameBoard {
                     System.out.print(this.gameBoard[i][j].toString());
             }
         }
+        System.out.println();
     }
 
 
@@ -38,20 +40,25 @@ public class GameBoard {
         return numberOfPoints;
     }
 
+    public boolean addLetter(AddLetterObject addLetterObject, Rack playerListOfLetter) {
+        return addLetter(addLetterObject.getPosX(), addLetterObject.getPosY(), addLetterObject.getLetter(), playerListOfLetter);
+    }
 
-    public char addLetter(int posX, int posY, char letter, Rack playerListOfLetter) {
+    public boolean addLetter(int posX, int posY, char letter, Rack playerListOfLetter) {
+        if (playerListOfLetter.remove(letter)) {
+            this.gameBoard[posX][posY] = new Letters(letter);
+            return true;
+        }
 
-
-        char addedLetter = 'x';
+        /*char addedLetter = 'x';
         for (Letters letterToAdd : playerListOfLetter.getPlayerListOfLetters()) {
             if (letterToAdd.getLetter() == letter) {
-                this.gameBoard[posX][posY] = letterToAdd;
                 addedLetter = letterToAdd.getLetter();
                 HelperMethods.removeLetterFromTacka(playerListOfLetter.getPlayerListOfLetters(), letterToAdd);
             }
-        }
+        }*/
 
-        return addedLetter;
+        return false;
     }
 
     public void removeAddedLetter(int posX, int posY, Player player, GameBoard board) {
