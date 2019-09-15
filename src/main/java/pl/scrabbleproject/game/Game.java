@@ -6,10 +6,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Game {
-    pl.scrabbleproject.game.GameBoard board = new pl.scrabbleproject.game.GameBoard();
+    GameBoard board = new GameBoard();
     ConsoleController console;
-    pl.scrabbleproject.game.ListOfLetters bagOfLetters = new pl.scrabbleproject.game.ListOfLetters();
-    List<pl.scrabbleproject.game.Player> players = new LinkedList<>();
+    ListOfLetters bagOfLetters = new ListOfLetters();
+    List<Player> players = new LinkedList<>();
 
     public Game(ConsoleController consoleController) {
         console = consoleController;
@@ -17,7 +17,7 @@ public class Game {
 
     public void gameLoop() {
         while (bagOfLetters.getLettersList().size() > 0) {//TODO add check of players letters after bag
-            for (pl.scrabbleproject.game.Player x : players) {
+            for (Player x : players) {
                 playerTurn(x);
             }
         }
@@ -32,17 +32,17 @@ public class Game {
 
     }
 
-    public void addPlayer(pl.scrabbleproject.game.Player player) throws Exception {
+    public void addPlayer(Player player) throws Exception {
         if (players.size() < 4) {
             players.add(player);
-            pl.scrabbleproject.game.HelperMethods.drawNewLetter(player, bagOfLetters);
+            HelperMethods.drawNewLetter(player, bagOfLetters);
         } else {
             throw new Exception("Too many players");
         }
     }
 
 
-    private void playerTurn(pl.scrabbleproject.game.Player player) {
+    private void playerTurn(Player player) {
 
         switch (console.printPlayerMenu(player)) {
             case 1:
@@ -50,11 +50,11 @@ public class Game {
                 player.getPlayerLetters().printList();
                 board.addLetter(console.addLetterMenu(), player.getPlayerLetters());
                 board.print();
-                pl.scrabbleproject.game.HelperMethods.drawNewLetter(player, bagOfLetters);
+                HelperMethods.drawNewLetter(player, bagOfLetters);
                 break;
             case 2:
                 bagOfLetters.exchangeLetters(console.choseLettersToExchange(), player);
-                pl.scrabbleproject.game.HelperMethods.drawNewLetter(player, bagOfLetters);
+                HelperMethods.drawNewLetter(player, bagOfLetters);
                 break;
             case 3:
                 skipTurn();

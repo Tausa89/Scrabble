@@ -10,48 +10,48 @@ public class ListOfLetters {
 
 
     private @Getter
-    List<pl.scrabbleproject.game.Letters> lettersList;
+    List<Letters> lettersList;
 
     public ListOfLetters() {
         this.lettersList = new ArrayList<>();
-        lettersList.add(new pl.scrabbleproject.game.Letters('A', 1));
-        lettersList.add(new pl.scrabbleproject.game.Letters('B', 3));
-        lettersList.add(new pl.scrabbleproject.game.Letters('C', 2));
+        lettersList.add(new Letters('A', 1));
+        lettersList.add(new Letters('B', 3));
+        lettersList.add(new Letters('C', 2));
         //TODO delete rest of unnecessary variables
-        lettersList.add(new pl.scrabbleproject.game.Letters('D', 2));
-        lettersList.add(new pl.scrabbleproject.game.Letters('E', 1));
-        lettersList.add(new pl.scrabbleproject.game.Letters('F', 2));
-        lettersList.add(new pl.scrabbleproject.game.Letters('G', 3));
-        lettersList.add(new pl.scrabbleproject.game.Letters('H', 3));
-        lettersList.add(new pl.scrabbleproject.game.Letters('I', 1));
-        lettersList.add(new pl.scrabbleproject.game.Letters('J', 3));
-        lettersList.add(new pl.scrabbleproject.game.Letters('K', 2));
-        lettersList.add(new pl.scrabbleproject.game.Letters('L', 2));
-        lettersList.add(new pl.scrabbleproject.game.Letters('M', 2));
-        lettersList.add(new pl.scrabbleproject.game.Letters('N', 1));
-        lettersList.add(new pl.scrabbleproject.game.Letters('O', 1));
-        lettersList.add(new pl.scrabbleproject.game.Letters('P', 2));
-        lettersList.add(new pl.scrabbleproject.game.Letters('R', 1));
-        lettersList.add(new pl.scrabbleproject.game.Letters('S', 1));
-        lettersList.add(new pl.scrabbleproject.game.Letters('T', 2));
-        lettersList.add(new pl.scrabbleproject.game.Letters('U', 3));
-        lettersList.add(new pl.scrabbleproject.game.Letters('W', 1));
-        lettersList.add(new pl.scrabbleproject.game.Letters('Y', 2));
-        lettersList.add(new pl.scrabbleproject.game.Letters('Z', 1));
+        lettersList.add(new Letters('D', 2));
+        lettersList.add(new Letters('E', 1));
+        lettersList.add(new Letters('F', 2));
+        lettersList.add(new Letters('G', 3));
+        lettersList.add(new Letters('H', 3));
+        lettersList.add(new Letters('I', 1));
+        lettersList.add(new Letters('J', 3));
+        lettersList.add(new Letters('K', 2));
+        lettersList.add(new Letters('L', 2));
+        lettersList.add(new Letters('M', 2));
+        lettersList.add(new Letters('N', 1));
+        lettersList.add(new Letters('O', 1));
+        lettersList.add(new Letters('P', 2));
+        lettersList.add(new Letters('R', 1));
+        lettersList.add(new Letters('S', 1));
+        lettersList.add(new Letters('T', 2));
+        lettersList.add(new Letters('U', 3));
+        lettersList.add(new Letters('W', 1));
+        lettersList.add(new Letters('Y', 2));
+        lettersList.add(new Letters('Z', 1));
 
     }
 
 
     public void pritn() {//TODO fix typo
-        for (pl.scrabbleproject.game.Letters letter : lettersList) {
+        for (Letters letter : lettersList) {
             System.out.println(letter.getLetter());
         }
     }
     //ConcurrentModificationException?
 
-    public void exchangeLetters(List<Character> lettersToExchange, pl.scrabbleproject.game.Player player) {
-        List<pl.scrabbleproject.game.Letters> tempList = new ArrayList<>();
-        for (pl.scrabbleproject.game.Letters letter : player.getPlayerLetters().getPlayerListOfLetters()) {
+    public void exchangeLetters(List<Character> lettersToExchange, Player player) {
+        List<Letters> tempList = new ArrayList<>();
+        for (Letters letter : player.getPlayerLetters().getPlayerListOfLetters()) {
             for (char letterToExchange : lettersToExchange) {
                 if (letter.getLetter() == letterToExchange) {
                     tempList.add(letter);
@@ -62,7 +62,7 @@ public class ListOfLetters {
 
     }
 
-    public void exchangeLetters(pl.scrabbleproject.game.Player player) {
+    public void exchangeLetters(Player player) {
         player.getPlayerLetters().getPlayerListOfLetters().clear();
     }//TODO fix name
 

@@ -8,11 +8,11 @@ import java.util.List;
 public class GameBoard {
 
     private @Getter
-    pl.scrabbleproject.game.Letters[][] gameBoard;
+    Letters[][] gameBoard;
 
 
     public GameBoard() {
-        this.gameBoard = new pl.scrabbleproject.game.Letters[15][15];
+        this.gameBoard = new Letters[15][15];
 
     }
 
@@ -32,21 +32,21 @@ public class GameBoard {
     }
 
 
-    public int countPoints(List<pl.scrabbleproject.game.Letters> word) {
+    public int countPoints(List<Letters> word) {
         int numberOfPoints = 0;
-        for (pl.scrabbleproject.game.Letters points : word) {
+        for (Letters points : word) {
             numberOfPoints += points.getPointsForLetter();
         }
         return numberOfPoints;
     }
 
-    public boolean addLetter(AddLetterObject addLetterObject, pl.scrabbleproject.game.Rack playerListOfLetter) {
+    public boolean addLetter(AddLetterObject addLetterObject, Rack playerListOfLetter) {
         return addLetter(addLetterObject.getPosX(), addLetterObject.getPosY(), addLetterObject.getLetter(), playerListOfLetter);
     }
 
-    public boolean addLetter(int posX, int posY, char letter, pl.scrabbleproject.game.Rack playerListOfLetter) {
+    public boolean addLetter(int posX, int posY, char letter, Rack playerListOfLetter) {
         if (playerListOfLetter.remove(letter)) {
-            this.gameBoard[posX][posY] = new pl.scrabbleproject.game.Letters(letter);
+            this.gameBoard[posX][posY] = new Letters(letter);
             return true;
         }
 
@@ -61,7 +61,7 @@ public class GameBoard {
         return false;
     }
 
-    public void removeAddedLetter(int posX, int posY, pl.scrabbleproject.game.Player player, GameBoard board) {
+    public void removeAddedLetter(int posX, int posY, Player player, GameBoard board) {
 
         if (board.getGameBoard()[posX][posY] != null) {
             player.getPlayerLetters().getPlayerListOfLetters().add(board.getGameBoard()[posX][posY]);

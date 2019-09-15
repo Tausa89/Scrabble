@@ -11,15 +11,15 @@ class Player {
     private int numberOfLoses;
     private int currentAmountOfPoints;
     private boolean playerTurn = true;
-    private pl.scrabbleproject.game.Rack playerLetters;
+    private Rack playerLetters;
 
-    public Player(String name, pl.scrabbleproject.game.ListOfLetters bagOfLetters) {
+    public Player(String name, ListOfLetters bagOfLetters) {
         this.name = name;
         this.currentAmountOfPoints = 0;
         this.numberOfWins = 0;
         this.numberOfDraws = 0;
         this.numberOfLoses = 0;
-        this.playerLetters = new pl.scrabbleproject.game.Rack(bagOfLetters);
+        this.playerLetters = new Rack(bagOfLetters);
 
     }
 
@@ -29,7 +29,7 @@ class Player {
         this.numberOfWins = 0;
         this.numberOfDraws = 0;
         this.numberOfLoses = 0;
-        this.playerLetters = new pl.scrabbleproject.game.Rack();
+        this.playerLetters = new Rack();
     }
 
 }
