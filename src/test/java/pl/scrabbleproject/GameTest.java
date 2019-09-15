@@ -1,6 +1,7 @@
-package pl.scrabbleProject;
+package pl.scrabbleproject;
 
 import org.junit.Before;
+import pl.scrabbleproject.game.*;
 
 import java.util.List;
 

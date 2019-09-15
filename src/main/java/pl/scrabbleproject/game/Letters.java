@@ -1,10 +1,8 @@
-package pl.scrabbleProject;
+package pl.scrabbleproject.game;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
-public @EqualsAndHashCode
-class Letters {
+public class Letters {
 
     private @Getter
     char letter;
@@ -12,6 +10,11 @@ class Letters {
     int pointsForLetter;
 
     public Letters() {
+    }
+
+    public Letters(char letter) {
+        this.letter = letter;
+        this.pointsForLetter = 1;//TODO automatically get it from somewhere
     }
 
     public Letters(char letter, int pointsForLetter) {
@@ -22,6 +25,26 @@ class Letters {
     @Override
     public String toString() {
         return "" + letter;
+    }
+
+    public boolean equals(Object o) {
+        if (o == this) return true;
+        if (!(o instanceof Letters)) return false;
+        final Letters other = (Letters) o;
+        if (!other.canEqual(this)) return false;
+        return this.letter == other.letter;
+    }
+
+    public int hashCode() {
+        final int PRIME = 59;
+        int result = 1;
+        result = result * PRIME + this.letter;
+        result = result * PRIME + this.pointsForLetter;
+        return result;
+    }
+
+    protected boolean canEqual(Object other) {
+        return other instanceof Letters;
     }
 
 
