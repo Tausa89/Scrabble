@@ -61,7 +61,7 @@ public class GameBoard {
         return false;
     }
 
-    public void removeAddedLetter(int posX, int posY, Player player, GameBoard board) {
+    public void removeAddedLetter(int posX, int posY, pl.scrabbleproject.game.Player player, GameBoard board) {
 
         if (board.getGameBoard()[posX][posY] != null) {
             player.getPlayerLetters().getPlayerListOfLetters().add(board.getGameBoard()[posX][posY]);

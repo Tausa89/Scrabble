@@ -42,14 +42,14 @@ public class ListOfLetters {
     }
 
 
-    public void pritn() {//TODO fix typo
+    public void print() {//TODO fix typo
         for (Letters letter : lettersList) {
             System.out.println(letter.getLetter());
         }
     }
     //ConcurrentModificationException?
 
-    public void exchangeLetters(List<Character> lettersToExchange, Player player) {
+    public void exchangeLetters(List<Character> lettersToExchange, pl.scrabbleproject.game.Player player) {
         List<Letters> tempList = new ArrayList<>();
         for (Letters letter : player.getPlayerLetters().getPlayerListOfLetters()) {
             for (char letterToExchange : lettersToExchange) {
@@ -62,7 +62,7 @@ public class ListOfLetters {
 
     }
 
-    public void exchangeLetters(Player player) {
+    public void exchangeLetters(pl.scrabbleproject.game.Player player) {
         player.getPlayerLetters().getPlayerListOfLetters().clear();
     }//TODO fix name
 

@@ -16,7 +16,7 @@ public class Game {
     }
 
     public void gameLoop() {
-        while (bagOfLetters.getLettersList().size() > 0) {//TODO add check of players letters after bag
+        while (!bagOfLetters.getLettersList().isEmpty()) {//TODO add check of players letters after bag
             for (Player x : players) {
                 playerTurn(x);
             }
