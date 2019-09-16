@@ -158,7 +158,7 @@ public class ConsoleController {
     }
 
     public int printPlayerMenu(Player player) {
-        System.out.println("Turn: " + player);
+        System.out.println("Turn: " + player.toString());
         System.out.print("Letters: ");
         player.getPlayerLetters().printList();
         System.out.println("If you want to add letters to the board press 1\n");

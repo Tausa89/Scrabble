@@ -51,7 +51,6 @@ public class Game {
                 player.getPlayerLetters().printList();
                 board.addLetter(console.addLetterMenu(), player.getPlayerLetters());
                 board.print();
-                HelperMethods.drawNewLetter(player, bagOfLetters);
                 break;
             case 2:
                 bagOfLetters.exchangeLetters(console.choseLettersToExchange(), player);
@@ -59,10 +58,12 @@ public class Game {
                 break;
             case 3:
                 skipTurn();
+                HelperMethods.drawNewLetter(player, bagOfLetters);
                 break;
 
             default:
                 skipTurn();
+
         }
 
     }

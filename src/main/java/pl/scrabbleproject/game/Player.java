@@ -32,4 +32,21 @@ class Player {
         this.playerLetters = new Rack();
     }
 
+    @Override
+    public String toString() {
+        return name.toUpperCase() + "\n" +
+                " Current amount of points " + currentAmountOfPoints + "\n" +
+                " Number of wins = " + numberOfWins + "\n" +
+                " Number of draws = " + numberOfDraws + "\n" +
+                " Number of loses = " + numberOfLoses + "\n";
+
+//                "name='" + name + '\'' +
+//                ", numberOfWins=" + numberOfWins +
+//                ", numberOfDraws=" + numberOfDraws +
+//                ", numberOfLoses=" + numberOfLoses +
+//                ", currentAmountOfPoints=" + currentAmountOfPoints +
+//                ", playerTurn=" + playerTurn +
+//                ", playerLetters=" + playerLetters +
+//                '}';
+    }
 }
