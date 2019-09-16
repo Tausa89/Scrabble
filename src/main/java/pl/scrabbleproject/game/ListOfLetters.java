@@ -49,7 +49,7 @@ public class ListOfLetters {
     }
     //ConcurrentModificationException?
 
-    public void exchangeLetters(List<Character> lettersToExchange, pl.scrabbleproject.game.Player player) {
+    public void exchangeLetters(List<Character> lettersToExchange, Player player) {
         List<Letters> tempList = new ArrayList<>();
         for (Letters letter : player.getPlayerLetters().getPlayerListOfLetters()) {
             for (char letterToExchange : lettersToExchange) {
@@ -62,7 +62,7 @@ public class ListOfLetters {
 
     }
 
-    public void exchangeLetters(pl.scrabbleproject.game.Player player) {
+    public void exchangeAllLetters(Player player) {
         player.getPlayerLetters().getPlayerListOfLetters().clear();
     }//TODO fix name
 

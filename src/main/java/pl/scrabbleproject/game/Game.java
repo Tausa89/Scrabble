@@ -11,12 +11,13 @@ public class Game {
     ListOfLetters bagOfLetters = new ListOfLetters();
     List<Player> players = new LinkedList<>();
 
+
     public Game(ConsoleController consoleController) {
         console = consoleController;
     }
 
     public void gameLoop() {
-        while (!bagOfLetters.getLettersList().isEmpty()) {//TODO add check of players letters after bag
+        while ((!bagOfLetters.getLettersList().isEmpty())) {//TODO add check of players letters after bag
             for (Player x : players) {
                 playerTurn(x);
             }

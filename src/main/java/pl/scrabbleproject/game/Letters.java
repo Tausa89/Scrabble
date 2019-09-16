@@ -1,20 +1,29 @@
 package pl.scrabbleproject.game;
 
 import lombok.Getter;
+import lombok.Setter;
 
 public class Letters {
 
     private @Getter
     char letter;
     private @Getter
+    @Setter
     int pointsForLetter;
+
 
     public Letters() {
     }
 
     public Letters(char letter) {
+        ListOfLetters list = new ListOfLetters();
         this.letter = letter;
-        this.pointsForLetter = 1;//TODO automatically get it from somewhere
+        for (Letters let : list.getLettersList()) {
+            if (this.letter == let.getLetter()) {
+                this.pointsForLetter = let.getPointsForLetter();
+            }
+        }
+        //TODO automatically get it from somewhere
     }
 
     public Letters(char letter, int pointsForLetter) {

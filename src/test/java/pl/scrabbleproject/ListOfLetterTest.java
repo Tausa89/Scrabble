@@ -34,7 +34,7 @@ public class ListOfLetterTest {
 
     @Test
     public void shouldRemoveLettersFromPlayerList() {
-        bagOfLetters.exchangeLetters(one);
+        bagOfLetters.exchangeAllLetters(one);
         one.getPlayerLetters().setPlayerListOfLetters(tempPlayerList);
         bagOfLetters.exchangeLetters(listOfLetterToRemove, one);
         Assert.assertTrue(one.getPlayerLetters().getPlayerListOfLetters().isEmpty());
@@ -44,7 +44,7 @@ public class ListOfLetterTest {
 
     @Test
     public void shouldRemoveLetterFromPlayerList() {
-        bagOfLetters.exchangeLetters(one);
+        bagOfLetters.exchangeAllLetters(one);
         tempPlayerList.add(new Letters('C', 2));
         one.getPlayerLetters().setPlayerListOfLetters(tempPlayerList);
         bagOfLetters.exchangeLetters(listOfLetterToRemove, one);
@@ -53,7 +53,7 @@ public class ListOfLetterTest {
 
     @Test
     public void shouldRemoveAllLettersFromPlayerList() {
-        bagOfLetters.exchangeLetters(one);
+        bagOfLetters.exchangeAllLetters(one);
         Assert.assertTrue(one.getPlayerLetters().getPlayerListOfLetters().isEmpty());
     }
 }
