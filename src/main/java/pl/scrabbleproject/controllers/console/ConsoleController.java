@@ -95,11 +95,27 @@ public class ConsoleController {
                 String name = input.nextLine();
                 if (name.equalsIgnoreCase("R")) {
                     menu = Menu.MAIN;
+                } else {
+                    if (game.getPlayers().isEmpty()) {
+                        game.addPlayer(new Player(name));
+                    } else {
+                        for (Player playerName : game.getPlayers()) {
+                            if (playerName.getName().equalsIgnoreCase(name)) {
+                                System.out.println("Chose other name, player " + playerName.getName() + " is already in game");
+                                menu = Menu.NEW_GAME;
+                            }
+                        }
+                        game.addPlayer(new Player(name));
+                    }
+
                 }
                 //TODO check r and return
                 //TODO check player count
-                game.addPlayer(new Player(name));
                 System.out.println(game.getPlayers().size());
+                if (game.getPlayers().size() == 4) {
+                    System.out.println("You can't add more players\n" +
+                            "Four it is maximum number of players");
+                }
                 break;
             }
             case 2: {
