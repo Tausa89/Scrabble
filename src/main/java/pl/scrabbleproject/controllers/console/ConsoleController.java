@@ -32,8 +32,10 @@ public class ConsoleController {
                     break;
                 }
                 case EXIT: {
+                    exitMenu();
                     //TODO are you sure? Y/N check + return to mainMenu
-                    endGame = true;
+                    //Done
+
                 }
             }
         } while (!endGame);
@@ -57,6 +59,27 @@ public class ConsoleController {
         }
     }
 
+    public void exitMenu() {
+        System.out.println("Are you sure? If yes press y\n");
+        System.out.println("Press n if you want go back to main menu");
+        String xxx = input.nextLine();
+        switch (xxx) {
+            case "y": {
+                menu = Menu.EXIT;
+                endGame = true;
+                break;
+            }
+            case "n": {
+                menu = Menu.NEW_GAME;
+                break;
+            }
+            default: {
+                System.out.println("Wrong input try again using y or n.\n");
+            }
+
+        }
+    }
+
     private void newGameMenu() throws Exception {
         System.out.println("New Game Menu:\n");
         System.out.println("If you want to add player press 1\n");
@@ -70,9 +93,13 @@ public class ConsoleController {
                 }
                 System.out.println("Write player name or r to return to previous screen");
                 String name = input.nextLine();
+                if (name.equalsIgnoreCase("R")) {
+                    menu = Menu.MAIN;
+                }
                 //TODO check r and return
                 //TODO check player count
                 game.addPlayer(new Player(name));
+                System.out.println(game.getPlayers().size());
                 break;
             }
             case 2: {
@@ -88,6 +115,7 @@ public class ConsoleController {
 
 
     public AddLetterObject addLetterMenu() {
+
         System.out.println("Enter coordinates of of your letter starting from row number ");
         int posX = Integer.parseInt(input.nextLine());
         System.out.println("Enter column number ");
@@ -96,6 +124,8 @@ public class ConsoleController {
         char letter = input.nextLine().toUpperCase().charAt(0);
         System.out.println("If you want to end write : e to stop or c to continue");
         return new AddLetterObject(posX, posY, letter);
+
+
     }
 
     public int choseNumberOfPlayers() {

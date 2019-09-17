@@ -1,5 +1,6 @@
 package pl.scrabbleproject.game;
 
+import lombok.Getter;
 import pl.scrabbleproject.controllers.console.ConsoleController;
 
 import java.util.LinkedList;
@@ -9,6 +10,7 @@ public class Game {
     GameBoard board = new GameBoard();
     ConsoleController console;
     ListOfLetters bagOfLetters = new ListOfLetters();
+    @Getter
     List<Player> players = new LinkedList<>();
 
 
@@ -34,7 +36,7 @@ public class Game {
     }
 
     public void addPlayer(Player player) throws Exception {
-        if (players.size() < 4) {
+        if (players.size() <= 4) {
             players.add(player);
             HelperMethods.drawNewLetter(player, bagOfLetters);
         } else {

@@ -29,7 +29,7 @@ public class GameBoardTest {
         playerLetters.getPlayerListOfLetters().add(letter);
         bagOfLetter = new ListOfLetters();
         listOfLetters.add(new Letters('A', 1));//TODO remove variables, add(new Letters(...));
-        listOfLetters.add(new Letters('B', 2));
+        listOfLetters.add(new Letters('B', 2));//Done
         listOfLetters.add(new Letters('C', 3));
 
 

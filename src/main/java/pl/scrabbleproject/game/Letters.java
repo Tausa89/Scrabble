@@ -24,6 +24,7 @@ public class Letters {
             }
         }
         //TODO automatically get it from somewhere
+        //Done
     }
 
     public Letters(char letter, int pointsForLetter) {

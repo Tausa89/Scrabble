@@ -18,6 +18,7 @@ public class ListOfLetters {
         lettersList.add(new Letters('B', 3));
         lettersList.add(new Letters('C', 2));
         //TODO delete rest of unnecessary variables
+        //Done
         lettersList.add(new Letters('D', 2));
         lettersList.add(new Letters('E', 1));
         lettersList.add(new Letters('F', 2));
@@ -43,6 +44,7 @@ public class ListOfLetters {
 
 
     public void print() {//TODO fix typo
+        //Done
         for (Letters letter : lettersList) {
             System.out.println(letter.getLetter());
         }
@@ -65,5 +67,6 @@ public class ListOfLetters {
     public void exchangeAllLetters(Player player) {
         player.getPlayerLetters().getPlayerListOfLetters().clear();
     }//TODO fix name
+    //Done
 
 }
