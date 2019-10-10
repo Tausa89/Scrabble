@@ -70,5 +70,9 @@ public class GameBoard {
 
     }
 
+    public void clearBoard() {
+        this.gameBoard = new Letters[15][15];
+    }
+
 
 }

@@ -33,6 +33,7 @@ public class ConsoleController {
                 }
                 case EXIT: {
                     exitMenu();
+                    break;
                     //TODO are you sure? Y/N check + return to mainMenu
                     //Done
 
@@ -62,15 +63,15 @@ public class ConsoleController {
     public void exitMenu() {
         System.out.println("Are you sure? If yes press y\n");
         System.out.println("Press n if you want go back to main menu");
-        String xxx = input.nextLine();
+        String xxx = input.nextLine().toUpperCase();
         switch (xxx) {
-            case "y": {
+            case "Y": {
                 menu = Menu.EXIT;
                 endGame = true;
                 break;
             }
-            case "n": {
-                menu = Menu.NEW_GAME;
+            case "N": {
+                menu = Menu.MAIN;
                 break;
             }
             default: {
@@ -94,7 +95,7 @@ public class ConsoleController {
                 System.out.println("Write player name or r to return to previous screen");
                 String name = input.nextLine();
                 if (name.equalsIgnoreCase("R")) {
-                    menu = Menu.MAIN;
+                    menu = Menu.NEW_GAME;
                 } else {
                     if (game.getPlayers().isEmpty()) {
                         game.addPlayer(new Player(name));
@@ -110,7 +111,9 @@ public class ConsoleController {
 
                 }
                 //TODO check r and return
+                //done
                 //TODO check player count
+                //done but atm in not working because there is not enough letters for 4 players.
                 System.out.println(game.getPlayers().size());
                 if (game.getPlayers().size() == 4) {
                     System.out.println("You can't add more players\n" +
@@ -124,7 +127,9 @@ public class ConsoleController {
             }
             case 3: {
                 //TODO
-                break;
+                //done
+                deleteGameMenu();
+
             }
         }
     }
@@ -216,6 +221,25 @@ public class ConsoleController {
     public void printPlayerList(List<Player> listOfPlayers) {
         for (Player player : listOfPlayers) {
             System.out.println(player.getName());
+        }
+    }
+
+    public void deleteGameMenu() {
+        System.out.println("Are you sure you want delete game? All your progress would be lost?\n" +
+                "If you still want to close game press d if you want to continue to play press c");
+        String option = input.nextLine().toUpperCase();
+
+        switch (option) {
+            case "D":
+                game.getPlayers().clear();
+                game.getBoard().clearBoard();
+                menu = Menu.MAIN;
+                break;
+            case "C":
+                menu = Menu.NEW_GAME;
+                break;
+            default:
+                System.out.println("Wrong input try again using d or c");
         }
     }
 }

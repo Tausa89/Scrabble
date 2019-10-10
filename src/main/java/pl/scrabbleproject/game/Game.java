@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Game {
+    @Getter
     GameBoard board = new GameBoard();
     ConsoleController console;
     ListOfLetters bagOfLetters = new ListOfLetters();
