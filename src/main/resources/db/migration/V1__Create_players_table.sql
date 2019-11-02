@@ -3,6 +3,6 @@ create table playersData (
     name varchar(25) not null,
     numberOfWins varchar(3),
     numberOfDr varchar(3),
-    numberOfWins varchar(3),
+    numberOfLoses varchar(3),
 
 );
