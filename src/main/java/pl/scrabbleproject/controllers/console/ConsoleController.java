@@ -101,29 +101,14 @@ public class ConsoleController {
                     menu = Menu.NEW_GAME;
                 } else {
                     if (HelperMethods.checkIfPlayerExistInDB(name)) {
-                        if (game.getPlayers().isEmpty()) {
-                            Player temporaryPlayer = new Player(name);
-                            game.addPlayer(temporaryPlayer);
-                            HelperMethods.savePlayerToDB(temporaryPlayer);
-                            //TODO add saving to DB
-                        } else {
-                            for (Player playerName : game.getPlayers()) {
-                                if (playerName.getName().equalsIgnoreCase(name)) {
-                                    System.out.println("Chose other name, player " + playerName.getName() + " is already in game");
-                                    menu = Menu.NEW_GAME;
-                                }
-                            }
-                            Player temporaryPlayer = new Player(name);
-                            game.addPlayer(temporaryPlayer);
-                            HelperMethods.savePlayerToDB(temporaryPlayer);
-                            //TODO add saving to DB
-                        }
-
+                        Player temporaryPlayer = new Player(name);
+                        game.addPlayer(temporaryPlayer);
+                        HelperMethods.savePlayerToDB(temporaryPlayer);
+                    } else {
+                        System.out.println("Chose other name, player " + name + " already exist");
+                        menu = Menu.NEW_GAME;
                     }
                 }
-                //TODO check r and return
-                //done
-                //TODO check player count
                 //done but atm in not working because there is not enough letters for 4 players.
                 System.out.println(game.getPlayers().size());
                 if (game.getPlayers().size() == 4) {
