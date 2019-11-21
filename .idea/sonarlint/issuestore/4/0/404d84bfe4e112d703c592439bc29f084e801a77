@@ -1,23 +1,27 @@
 
-Qsquid:S1199€"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8ìá…ŠÔ-
-isquid:S13012"KReplace this "switch" statement by "if" statements to increase readability.(ìè²ë8ååë‰Ô-
-jsquid:S00112]"FDefine and throw a dedicated exception instead of using a generic one.(©¦öÙúÿÿÿÿ8ìá…ŠÔ-
-W"squid:SwitchLastCaseIsDefaultCheckZ""Add a default case to this switch.(ìè²ë8ìá…ŠÔ-
-Isquid:S1135"2Complete the task associated to this TODO comment.(®¶£·
-Usquid:S1135q"2Complete the task associated to this TODO comment.(é–³âıÿÿÿÿ8ìá…ŠÔ-
-Isquid:S1135%"2Complete the task associated to this TODO comment.(é©ˆ¾
-Psquid:S1199["-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ìá…ŠÔ-
-Psquid:S1199|"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8ìá…ŠÔ-
-Ksquid:S1199D"-Extract this nested code block into a method.(…¡ñŞ8ìá…ŠÔ-
-Nsquid:S1135s"2Complete the task associated to this TODO comment.(ÓÅ“Òşÿÿÿÿ
-psquid:S3776T"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(çüÎ±8òÇ·‹Ô-
-Ksquid:S1199I"-Extract this nested code block into a method.(ìıõÂ8ìá…ŠÔ-
-Isquid:S1199""-Extract this nested code block into a method.(óµï²ûÿÿÿÿ
-Psquid:S1199M"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ8ù”ˆŠÔ-
-Isquid:S1199"-Extract this nested code block into a method.(‹õ±¤ÿÿÿÿÿ
-Dsquid:S1199"-Extract this nested code block into a method.(ˆ§ë
-Psquid:S11993"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ååë‰Ô-
-Psquid:S11998"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8ìá…ŠÔ-
-Qsquid:S1135"2Complete the task associated to this TODO comment.(…ïœ†8ìá…ŠÔ-
-W"squid:SwitchLastCaseIsDefaultCheck2""Add a default case to this switch.(ìè²ë8ååë‰Ô-
-Dsquid:S1199"-Extract this nested code block into a method.(å²û¤
+Nsquid:S1135|"2Complete the task associated to this TODO comment.(ÓÅ“Òşÿÿÿÿ
+Isquid:S1199$"-Extract this nested code block into a method.(óµï²ûÿÿÿÿ
+fsquid:S00112—"FDefine and throw a dedicated exception instead of using a generic one.(Ã¢ß·8á’Š×è-
+jsquid:S00112`"FDefine and throw a dedicated exception instead of using a generic one.(©¦öÙúÿÿÿÿ8ìá…ŠÔ-
+Qsquid:S1199²"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8µøÚ±è-
+Psquid:S1199^"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ìá…ŠÔ-
+Psquid:S11995"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ååë‰Ô-
+W"squid:SwitchLastCaseIsDefaultCheck4""Add a default case to this switch.(ìè²ë8ååë‰Ô-
+Psquid:S1199:"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8ìá…ŠÔ-
+W"squid:SwitchLastCaseIsDefaultCheck]""Add a default case to this switch.(ìè²ë8ìá…ŠÔ-
+Psquid:S1199O"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ8ù”ˆŠÔ-
+Isquid:S1135 "2Complete the task associated to this TODO comment.(®¶£·
+Isquid:S1135'"2Complete the task associated to this TODO comment.(é©ˆ¾
+Dsquid:S1199"-Extract this nested code block into a method.(ˆ§ë
+Qsquid:S1199…"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8öÅ¯è-
+Ksquid:S1199F"-Extract this nested code block into a method.(…¡ñŞ8ìá…ŠÔ-
+Lsquid:S1199¿"-Extract this nested code block into a method.(ÎŞèº8µøÚ±è-
+Psquid:S1135k"2Complete the task associated to this TODO comment.(’ÉÆÒ8‹™±ç-
+Usquid:S1135z"2Complete the task associated to this TODO comment.(é–³âıÿÿÿÿ8ìá…ŠÔ-
+Ksquid:S1199K"-Extract this nested code block into a method.(ìıõÂ8ìá…ŠÔ-
+isquid:S13014"KReplace this "switch" statement by "if" statements to increase readability.(ìè²ë8ååë‰Ô-
+Qsquid:S1135À"2Complete the task associated to this TODO comment.(…ïœ†8µøÚ±è-
+Psquid:S1135v"2Complete the task associated to this TODO comment.(’ÉÆÒ8ĞÍ ±ç-
+Dsquid:S1199"-Extract this nested code block into a method.(å²û¤
+Isquid:S1199"-Extract this nested code block into a method.(‹õ±¤ÿÿÿÿÿ
+psquid:S3776V"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(çüÎ±8òÇ·‹Ô-

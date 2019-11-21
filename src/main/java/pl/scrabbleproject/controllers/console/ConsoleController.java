@@ -2,6 +2,8 @@ package pl.scrabbleproject.controllers.console;
 
 import pl.scrabbleproject.controllers.console.enums.Menu;
 import pl.scrabbleproject.game.Game;
+import pl.scrabbleproject.game.HelperMethods;
+import pl.scrabbleproject.game.HibernateUtil;
 import pl.scrabbleproject.game.Player;
 import pl.scrabbleproject.game.dto.AddLetterObject;
 
@@ -84,8 +86,9 @@ public class ConsoleController {
     private void newGameMenu() throws Exception {
         System.out.println("New Game Menu:\n");
         System.out.println("If you want to add player press 1\n");
-        System.out.println("If you want to start game press 2\n");
-        System.out.println("If you want to delete game press 3\n");
+        System.out.println("If you did play before and you want to load your profile press 2\n");
+        System.out.println("If you want to start game press 3\n");
+        System.out.println("If you want to delete game press 4\n");
         int operation = Integer.parseInt(input.nextLine());
         switch (operation) {
             case 1: {
@@ -97,18 +100,26 @@ public class ConsoleController {
                 if (name.equalsIgnoreCase("R")) {
                     menu = Menu.NEW_GAME;
                 } else {
-                    if (game.getPlayers().isEmpty()) {
-                        game.addPlayer(new Player(name));
-                    } else {
-                        for (Player playerName : game.getPlayers()) {
-                            if (playerName.getName().equalsIgnoreCase(name)) {
-                                System.out.println("Chose other name, player " + playerName.getName() + " is already in game");
-                                menu = Menu.NEW_GAME;
+                    if (HelperMethods.checkIfPlayerExistInDB(name)) {
+                        if (game.getPlayers().isEmpty()) {
+                            Player temporaryPlayer = new Player(name);
+                            game.addPlayer(temporaryPlayer);
+                            HelperMethods.savePlayerToDB(temporaryPlayer);
+                            //TODO add saving to DB
+                        } else {
+                            for (Player playerName : game.getPlayers()) {
+                                if (playerName.getName().equalsIgnoreCase(name)) {
+                                    System.out.println("Chose other name, player " + playerName.getName() + " is already in game");
+                                    menu = Menu.NEW_GAME;
+                                }
                             }
+                            Player temporaryPlayer = new Player(name);
+                            game.addPlayer(temporaryPlayer);
+                            HelperMethods.savePlayerToDB(temporaryPlayer);
+                            //TODO add saving to DB
                         }
-                        game.addPlayer(new Player(name));
-                    }
 
+                    }
                 }
                 //TODO check r and return
                 //done
@@ -122,10 +133,64 @@ public class ConsoleController {
                 break;
             }
             case 2: {
-                menu = Menu.GAME;
+                System.out.println("Pleas write your profile name");
+                String name = input.nextLine();
+                Player newPlayer;
+                try (var session = HibernateUtil.getSessionFactory().openSession()) {
+                    var transaction = session.beginTransaction();
+                    List<Player> results = session.createQuery("FROM Player WHERE name = " + "\'" + name + "\'", Player.class).getResultList();
+                    if (results.size() == 1) {
+                        newPlayer = results.get(0);
+                        newPlayer.setPlayerLetters();
+                        game.addPlayer(newPlayer);
+                        System.out.println("Player " + newPlayer.getName() + " was successfully loaded and added to game");
+                        System.out.println(newPlayer.toString());
+                    } else if (results.isEmpty()) {
+                        System.out.println("There is no profile with name " + name + " in database");
+                        menu = Menu.NEW_GAME;
+                    } else {
+                        menu = Menu.NEW_GAME;
+                        throw new Exception("Something went wrong, there can't be more than 1 profile with this same name in data base");
+
+                    }
+
+                    transaction.commit();
+//                for(Player player : results) {
+//                    if (player.getName().equals(name)) {
+//                        newPlayer = session.load(Player.class, player.getPlayerId());
+//                        addedPlayer = new Player(newPlayer.getName());
+//                        addedPlayer.setNumberOfWins(newPlayer.getNumberOfWins());
+//                        addedPlayer.setNumberOfLoses(newPlayer.getNumberOfLoses());
+//                        addedPlayer.setNumberOfDraws(newPlayer.getNumberOfDraws());
+//                        game.addPlayer(addedPlayer);
+//                        System.out.println("Player " + newPlayer.getName() + " was successfully loaded and added to game");
+//                        System.out.println(newPlayer.toString());
+//                        menu = Menu.NEW_GAME;
+//                        transaction.commit();
+//                        break;
+//                    }
+//                }
+//                    System.out.println("There is no profile with name " + name + " in database");
+//                    menu = Menu.NEW_GAME;
+                    session.close();
+                }
+
                 break;
             }
             case 3: {
+                var session = HibernateUtil.getSessionFactory().openSession();
+                var transaction = session.beginTransaction();
+
+//                for (Player player : game.getPlayers()) {
+//                    session.save(player);
+//                }
+                transaction.commit();
+                session.close();
+                menu = Menu.GAME;
+
+                break;
+            }
+            case 4: {
                 //TODO
                 //done
                 deleteGameMenu();

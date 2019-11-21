@@ -65,3 +65,5 @@ c
 3src/test/java/pl/scrabbleproject/GameBoardTest.java,a\4\a4ef72fd39ab50e0ef6ab59e9cdf89f911c7f4ee
 _
 /src/main/java/pl/scrabbleproject/game/Game.java,2\1\2116ad6b5f1c6ec77ef0120f2d557211a70b9a87
+h
+8src/main/java/pl/scrabbleproject/game/HibernateUtil.java,d\6\d6e0bce09ee2d053ace7b9f24a102fac25487a3c

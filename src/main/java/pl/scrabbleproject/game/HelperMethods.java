@@ -6,6 +6,8 @@ import java.util.List;
 
 public class HelperMethods {
 
+    private HelperMethods() {
+    }
 
     public static List<Letters> createListOfPlayerLetters(ListOfLetters lettersList) {
 
@@ -43,5 +45,42 @@ public class HelperMethods {
 
     }
 
+    public static void savePlayerToDB(Player player) {
+        var session = HibernateUtil.getSessionFactory().openSession();
+        var transaction = session.beginTransaction();
 
+        session.save(player);
+        transaction.commit();
+        session.close();
+
+    }
+
+    public static void updatingPlayers(List<Player> list) {
+        var session = HibernateUtil.getSessionFactory().openSession();
+        var transaction = session.beginTransaction();
+        for (Player player : list) {
+            List<Player> results = session.createQuery("FROM Player WHERE name = " + "\'" + player.getName() + "\'", Player.class).getResultList();
+            Player loadedPlayer = results.get(0);
+            loadedPlayer.setNumberOfDraws(player.getNumberOfDraws());
+            loadedPlayer.setNumberOfWins(player.getNumberOfWins());
+            loadedPlayer.setNumberOfLoses(player.getNumberOfLoses());
+            session.update(loadedPlayer);
+        }
+        transaction.commit();
+
+        session.close();
+    }
+
+    public static boolean checkIfPlayerExistInDB(String name) {
+        try (var session = HibernateUtil.getSessionFactory().openSession()) {
+            var transaction = session.beginTransaction();
+            List<Player> results = session.createQuery("FROM Player WHERE name = " + "\'" + name + "\'", Player.class).getResultList();
+            if (results.isEmpty()) {
+                return true;
+            }
+            transaction.commit();
+            session.close();
+        }
+        return false;
+    }
 }

@@ -47,6 +47,7 @@ public class Player {
 
     }
 
+
     public Player(String name) {
         this.name = name;
         this.currentAmountOfPoints = 0;
@@ -112,5 +113,9 @@ public class Player {
 
     public void setNumberOfLoses(int numberOfLoses) {
         this.numberOfLoses = numberOfLoses;
+    }
+
+    public void setPlayerLetters() {
+        this.playerLetters = new Rack();
     }
 }
