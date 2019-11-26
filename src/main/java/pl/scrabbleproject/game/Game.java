@@ -52,7 +52,11 @@ public class Game {
             case 1:
                 board.print();
                 player.getPlayerLetters().printList();
-                board.addLetter(console.addLetterMenu(), player.getPlayerLetters());
+
+                do {
+                    board.addLetter(console.addLetterMenu(), player.getPlayerLetters());
+                    board.print();
+                } while (console.addNextLetterMenu() != 'E');
                 board.print();
                 break;
             case 2:

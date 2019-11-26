@@ -28,7 +28,9 @@ public class Rack {
     }
 
     public boolean remove(char letter) {
-        if (playerListOfLetters.isEmpty()) return false;
+        if (playerListOfLetters.isEmpty()) {
+            return false;
+        }
         playerListOfLetters.remove(new Letters(letter));
         return true;
     }

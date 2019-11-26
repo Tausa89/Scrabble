@@ -294,7 +294,7 @@ public class ConsoleController {
         }
     }
 
-    public char addNextLetterMeu() {
+    public char addNextLetterMenu() {
         System.out.println("If you want to end write : e to stop or c to continue");
         return input.nextLine().toUpperCase().charAt(0);
     }
