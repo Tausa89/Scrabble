@@ -60,6 +60,12 @@ public class Game {
                 HelperMethods.drawNewLetter(player, bagOfLetters);
                 break;
             case 3:
+                bagOfLetters.exchangeAllLetters(player);
+                HelperMethods.drawNewLetter(player, bagOfLetters);
+                System.out.println("All letters was replaced, this are your new letters");
+                player.getPlayerLetters().printList();
+                break;
+            case 4:
                 skipTurn();
                 HelperMethods.drawNewLetter(player, bagOfLetters);
                 break;

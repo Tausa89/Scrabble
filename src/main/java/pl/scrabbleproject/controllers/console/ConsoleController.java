@@ -176,10 +176,12 @@ public class ConsoleController {
                 break;
             }
             case 4: {
-                //TODO
-                //done
                 deleteGameMenu();
+                break;
 
+            }
+            default: {
+                System.out.println("Wrong input");
             }
         }
     }
@@ -193,9 +195,7 @@ public class ConsoleController {
         int posY = Integer.parseInt(input.nextLine());
         System.out.println("Please enter the letter you want to add");
         char letter = input.nextLine().toUpperCase().charAt(0);
-        System.out.println("If you want to end write : e to stop or c to continue");
         return new AddLetterObject(posX, posY, letter);
-
 
     }
 
@@ -263,8 +263,9 @@ public class ConsoleController {
         System.out.print("Letters: ");
         player.getPlayerLetters().printList();
         System.out.println("If you want to add letters to the board press 1\n");
-        System.out.println("If you want to exchange letter press 2\n");
-        System.out.println("If you want to skip your turn press 3\n");
+        System.out.println("If you want to exchange letter or letters press 2\n");
+        System.out.println("If you want to exchange all letters press 3\n");
+        System.out.println("If you want to skip your turn press 4\n");
         return Integer.parseInt(input.nextLine());
     }
 
@@ -291,5 +292,10 @@ public class ConsoleController {
             default:
                 System.out.println("Wrong input try again using d or c");
         }
+    }
+
+    public char addNextLetterMeu() {
+        System.out.println("If you want to end write : e to stop or c to continue");
+        return input.nextLine().toUpperCase().charAt(0);
     }
 }
