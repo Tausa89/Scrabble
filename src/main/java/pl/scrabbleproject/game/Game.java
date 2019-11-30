@@ -57,6 +57,7 @@ public class Game {
                     board.addLetter(console.addLetterMenu(), player.getPlayerLetters());
                     board.print();
                 } while (console.addNextLetterMenu() != 'E');
+                HelperMethods.drawNewLetter(player, bagOfLetters);
                 board.print();
                 break;
             case 2:

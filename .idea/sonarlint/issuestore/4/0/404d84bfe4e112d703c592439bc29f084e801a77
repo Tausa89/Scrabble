@@ -1,22 +1,22 @@
 
-Dsquid:S1199"-Extract this nested code block into a method.(ˆ§ë
+fsquid:S00112Š"FDefine and throw a dedicated exception instead of using a generic one.(Ã¢ß·8á’Š×è-
+Isquid:S1199$"-Extract this nested code block into a method.(óµï²ûÿÿÿÿ
+Psquid:S1199O"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ8ù”ˆŠÔ-
+Dsquid:S1199"-Extract this nested code block into a method.(å²û¤
+Psquid:S1199:"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8ìá…ŠÔ-
 W"squid:SwitchLastCaseIsDefaultCheck4""Add a default case to this switch.(ìè²ë8ååë‰Ô-
-Isquid:S1135'"2Complete the task associated to this TODO comment.(é©ˆ¾
-isquid:S13014"KReplace this "switch" statement by "if" statements to increase readability.(ìè²ë8ååë‰Ô-
 Ksquid:S1199K"-Extract this nested code block into a method.(ìıõÂ8ìá…ŠÔ-
+Psquid:S11995"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ååë‰Ô-
+isquid:S13014"KReplace this "switch" statement by "if" statements to increase readability.(ìè²ë8ååë‰Ô-
+Isquid:S1135 "2Complete the task associated to this TODO comment.(®¶£·
+jsquid:S00112`"FDefine and throw a dedicated exception instead of using a generic one.(©¦öÙúÿÿÿÿ8ìá…ŠÔ-
+Ksquid:S1199F"-Extract this nested code block into a method.(…¡ñŞ8ìá…ŠÔ-
+Isquid:S1135'"2Complete the task associated to this TODO comment.(é©ˆ¾
+psquid:S3776V"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(çüÎ±8çÁĞ€é-
+Psquid:S1199^"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ìá…ŠÔ-
+Psquid:S1199x"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8öÅ¯è-
 Qsquid:S1199¥"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8µøÚ±è-
 Isquid:S1199"-Extract this nested code block into a method.(‹õ±¤ÿÿÿÿÿ
-Psquid:S1199x"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8öÅ¯è-
-fsquid:S00112Š"FDefine and throw a dedicated exception instead of using a generic one.(Ã¢ß·8á’Š×è-
-Psquid:S1199:"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8ìá…ŠÔ-
-Psquid:S11995"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ååë‰Ô-
-jsquid:S00112`"FDefine and throw a dedicated exception instead of using a generic one.(©¦öÙúÿÿÿÿ8ìá…ŠÔ-
-psquid:S3776V"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(çüÎ±8çÁĞ€é-
-Ksquid:S1199F"-Extract this nested code block into a method.(…¡ñŞ8ìá…ŠÔ-
-Dsquid:S1199"-Extract this nested code block into a method.(å²û¤
-Psquid:S1199^"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ìá…ŠÔ-
 Qsquid:S1199·"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ8‚ëƒé-
-Psquid:S1199O"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ8ù”ˆŠÔ-
+Dsquid:S1199"-Extract this nested code block into a method.(ˆ§ë
 Lsquid:S1199²"-Extract this nested code block into a method.(ÎŞèº8µøÚ±è-
-Isquid:S1199$"-Extract this nested code block into a method.(óµï²ûÿÿÿÿ
-Isquid:S1135 "2Complete the task associated to this TODO comment.(®¶£·

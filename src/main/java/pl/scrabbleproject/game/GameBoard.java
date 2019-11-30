@@ -46,20 +46,22 @@ public class GameBoard {
     }
 
     public boolean addLetter(int posX, int posY, char letter, Rack playerListOfLetter) {
-        if (playerListOfLetter.remove(letter)) {
-            this.gameBoard[posX][posY] = new Letters(letter);
-            return true;
-        }
 
-        /*char addedLetter = 'x';
-        for (Letters letterToAdd : playerListOfLetter.getPlayerListOfLetters()) {
-            if (letterToAdd.getLetter() == letter) {
-                addedLetter = letterToAdd.getLetter();
-                HelperMethods.removeLetterFromTacka(playerListOfLetter.getPlayerListOfLetters(), letterToAdd);
+        if (this.gameBoard[posX][posY] == null) {
+            for (Letters letterToAdd : playerListOfLetter.getPlayerListOfLetters()) {
+                if (letter == letterToAdd.getLetter()) {
+                    this.gameBoard[posX][posY] = new Letters(letter);
+                    HelperMethods.removeLetterFromTacka(playerListOfLetter.getPlayerListOfLetters(), letterToAdd);
+                    return true;
+                }
+
             }
-        }*/
-
+            System.out.println("You don't have this letter try again");
+            return false;
+        }
+        System.out.println("There is already letter on this position, pleas try again");
         return false;
+
     }
 
     public void removeAddedLetter(int posX, int posY, Player player, GameBoard board) {
