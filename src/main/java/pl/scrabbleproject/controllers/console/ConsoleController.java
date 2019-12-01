@@ -48,18 +48,32 @@ public class ConsoleController {
         System.out.println("Main Menu:\n");
         System.out.println("If you want to start game press 1\n");
         System.out.println("If you want to exit press 2\n");
-        int operation = Integer.parseInt(input.nextLine());
-        switch (operation) {
-            case 1: {
+        try {
+            int operation = Integer.parseInt(input.nextLine());
+            if (operation == 1) {
                 menu = Menu.NEW_GAME;
                 game = new Game(this);
-                break;
-            }
-            case 2: {
+            } else if (operation == 2) {
                 menu = Menu.EXIT;
-                break;
+            } else {
+                System.out.println("You can chose only option 1 or 2.");
             }
+        } catch (NumberFormatException e) {
+            e.getMessage();
+            System.out.println("You can't use any other symbols than 1 or 2.");
         }
+
+//        switch (operation) {
+//            case 1: {
+//                menu = Menu.NEW_GAME;
+//                game = new Game(this);
+//                break;
+//            }
+//            case 2: {
+//                menu = Menu.EXIT;
+//                break;
+//            }
+//        }
     }
 
     public void exitMenu() {
