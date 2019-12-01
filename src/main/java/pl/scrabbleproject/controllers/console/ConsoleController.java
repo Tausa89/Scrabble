@@ -101,23 +101,28 @@ public class ConsoleController {
         System.out.println("If you did play before and you want to load your profile press 2\n");
         System.out.println("If you want to start game press 3\n");
         System.out.println("If you want to delete game press 4\n");
-        int operation = Integer.parseInt(input.nextLine());
-        switch (operation) {
-            case 1:
-                addNewPlayer();
-                break;
-            case 2:
-                loadPlayerFromDatabase();
-                break;
-            case 3:
-                startGameAndAddNewPlayerToDatabase();
-                break;
-            case 4:
-                deleteGameMenu();
-                break;
-            default:
-                System.out.println("Wrong input");
+        try {
+            int operation = Integer.parseInt(input.nextLine());
+            switch (operation) {
+                case 1:
+                    addNewPlayer();
+                    break;
+                case 2:
+                    loadPlayerFromDatabase();
+                    break;
+                case 3:
+                    startGameAndAddNewPlayerToDatabase();
+                    break;
+                case 4:
+                    deleteGameMenu();
+                    break;
+                default:
+                    System.out.println("Wrong input");
 
+            }
+        } catch (NumberFormatException e) {
+            e.getMessage();
+            System.out.println("Use only numbers from 1 to 4\n");
         }
     }
 
