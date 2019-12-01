@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleController {
-    Game game;
-    Menu menu = Menu.MAIN;
-    boolean endGame = false;
+    private Game game;
+    private Menu menu = Menu.MAIN;
+    private boolean endGame = false;
     private Scanner input = new Scanner(System.in);
 
     public void run() throws Exception {
@@ -36,8 +36,6 @@ public class ConsoleController {
                 case EXIT: {
                     exitMenu();
                     break;
-                    //TODO are you sure? Y/N check + return to mainMenu
-                    //Done
 
                 }
             }
@@ -105,98 +103,88 @@ public class ConsoleController {
         System.out.println("If you want to delete game press 4\n");
         int operation = Integer.parseInt(input.nextLine());
         switch (operation) {
-            case 1: {
-                if (game == null) {
-                    throw new Exception("Trying to add player to non-existing game");
-                }
-                System.out.println("Write player name or r to return to previous screen");
-                String name = input.nextLine();
-                if (name.equalsIgnoreCase("R")) {
-                    menu = Menu.NEW_GAME;
-                } else {
-                    if (HelperMethods.checkIfPlayerExistInDB(name)) {
-                        Player temporaryPlayer = new Player(name);
-                        game.addPlayer(temporaryPlayer);
-                        HelperMethods.savePlayerToDB(temporaryPlayer);
-                    } else {
-                        System.out.println("Chose other name, player " + name + " already exist");
-                        menu = Menu.NEW_GAME;
-                    }
-                }
-                //done but atm in not working because there is not enough letters for 4 players.
-                System.out.println(game.getPlayers().size());
-                if (game.getPlayers().size() == 4) {
-                    System.out.println("You can't add more players\n" +
-                            "Four it is maximum number of players");
-                }
+            case 1:
+                addNewPlayer();
                 break;
-            }
-            case 2: {
-                System.out.println("Pleas write your profile name");
-                String name = input.nextLine();
-                Player newPlayer;
-                try (var session = HibernateUtil.getSessionFactory().openSession()) {
-                    var transaction = session.beginTransaction();
-                    List<Player> results = session.createQuery("FROM Player WHERE name = " + "\'" + name + "\'", Player.class).getResultList();
-                    if (results.size() == 1) {
-                        newPlayer = results.get(0);
-                        newPlayer.setPlayerLetters();
-                        game.addPlayer(newPlayer);
-                        System.out.println("Player " + newPlayer.getName() + " was successfully loaded and added to game");
-                        System.out.println(newPlayer.toString());
-                    } else if (results.isEmpty()) {
-                        System.out.println("There is no profile with name " + name + " in database");
-                        menu = Menu.NEW_GAME;
-                    } else {
-                        menu = Menu.NEW_GAME;
-                        throw new Exception("Something went wrong, there can't be more than 1 profile with this same name in data base");
-
-                    }
-
-                    transaction.commit();
-//                for(Player player : results) {
-//                    if (player.getName().equals(name)) {
-//                        newPlayer = session.load(Player.class, player.getPlayerId());
-//                        addedPlayer = new Player(newPlayer.getName());
-//                        addedPlayer.setNumberOfWins(newPlayer.getNumberOfWins());
-//                        addedPlayer.setNumberOfLoses(newPlayer.getNumberOfLoses());
-//                        addedPlayer.setNumberOfDraws(newPlayer.getNumberOfDraws());
-//                        game.addPlayer(addedPlayer);
-//                        System.out.println("Player " + newPlayer.getName() + " was successfully loaded and added to game");
-//                        System.out.println(newPlayer.toString());
-//                        menu = Menu.NEW_GAME;
-//                        transaction.commit();
-//                        break;
-//                    }
-//                }
-//                    System.out.println("There is no profile with name " + name + " in database");
-//                    menu = Menu.NEW_GAME;
-                    session.close();
-                }
-
+            case 2:
+                loadPlayerFromDatabase();
                 break;
-            }
-            case 3: {
-                var session = HibernateUtil.getSessionFactory().openSession();
-                var transaction = session.beginTransaction();
-
-//                for (Player player : game.getPlayers()) {
-//                    session.save(player);
-//                }
-                transaction.commit();
-                session.close();
-                menu = Menu.GAME;
-
+            case 3:
+                startGameAndAddNewPlayerToDatabase();
                 break;
-            }
-            case 4: {
+            case 4:
                 deleteGameMenu();
                 break;
+            default:
+                System.out.println("Wrong input");
+
+        }
+    }
+
+    private void startGameAndAddNewPlayerToDatabase() {
+        if (!game.getPlayers().isEmpty()) {
+            var session = HibernateUtil.getSessionFactory().openSession();
+            var transaction = session.beginTransaction();
+            transaction.commit();
+            session.close();
+            menu = Menu.GAME;
+        }
+        System.out.println("You can't start a game when there is no players\n");
+        return;
+    }
+
+    private void loadPlayerFromDatabase() throws Exception {
+        System.out.println("Pleas write your profile name");
+        String name = input.nextLine();
+        Player newPlayer;
+        try (var session = HibernateUtil.getSessionFactory().openSession()) {
+            var transaction = session.beginTransaction();
+            List<Player> results = session.createQuery("FROM Player WHERE name = " + "\'" + name + "\'", Player.class).getResultList();
+            if (results.size() == 1) {
+                newPlayer = results.get(0);
+                newPlayer.setPlayerLetters();
+                game.addPlayer(newPlayer);
+                System.out.println("Player " + newPlayer.getName() + " was successfully loaded and added to game");
+                System.out.println(newPlayer.toString());
+            } else if (results.isEmpty()) {
+                System.out.println("There is no profile with name " + name + " in database");
+                menu = Menu.NEW_GAME;
+            } else {
+                menu = Menu.NEW_GAME;
+                throw new Exception("Something went wrong, there can't be more than 1 profile with this same name in data base");
 
             }
-            default: {
-                System.out.println("Wrong input");
+
+            transaction.commit();
+            session.close();
+        }
+
+        return;
+    }
+
+    private void addNewPlayer() throws Exception {
+        if (game == null) {
+            throw new Exception("Trying to add player to non-existing game");
+        }
+        System.out.println("Write player name or r to return to previous screen");
+        String name = input.nextLine();
+        if (name.equalsIgnoreCase("R")) {
+            menu = Menu.NEW_GAME;
+        } else {
+            if (HelperMethods.checkIfPlayerExistInDB(name)) {
+                Player temporaryPlayer = new Player(name);
+                game.addPlayer(temporaryPlayer);
+                HelperMethods.savePlayerToDB(temporaryPlayer);
+            } else {
+                System.out.println("Chose other name, player " + name + " already exist");
+                menu = Menu.NEW_GAME;
             }
+        }
+        //done but atm in not working because there is not enough letters for 4 players.
+        System.out.println(game.getPlayers().size());
+        if (game.getPlayers().size() == 4) {
+            System.out.println("You can't add more players\n" +
+                    "Four it is maximum number of players");
         }
     }
 
