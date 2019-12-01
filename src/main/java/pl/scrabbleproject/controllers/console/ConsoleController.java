@@ -20,29 +20,26 @@ public class ConsoleController {
     public void run() throws Exception {
         do {
             switch (menu) {
-                case MAIN: {
+                case MAIN:
                     mainMenu();
                     break;
-                }
-                case NEW_GAME: {
+                case NEW_GAME:
                     newGameMenu();
                     break;
-                }
-                case GAME: {
+
+                case GAME:
                     //TODO give control to the Game
                     game.gameLoop();
                     break;
-                }
-                case EXIT: {
+
+                case EXIT:
                     exitMenu();
                     break;
-
-                }
             }
         } while (!endGame);
     }
 
-    public void mainMenu() {
+    private void mainMenu() {
         System.out.println("Main Menu:\n");
         System.out.println("If you want to start game press 1\n");
         System.out.println("If you want to exit press 2\n");
@@ -74,23 +71,21 @@ public class ConsoleController {
 //        }
     }
 
-    public void exitMenu() {
+    private void exitMenu() {
         System.out.println("Are you sure? If yes press y\n");
         System.out.println("Press n if you want go back to main menu");
         String xxx = input.nextLine().toUpperCase();
         switch (xxx) {
-            case "Y": {
+            case "Y":
                 menu = Menu.EXIT;
                 endGame = true;
                 break;
-            }
-            case "N": {
+            case "N":
                 menu = Menu.MAIN;
                 break;
-            }
-            default: {
+            default:
                 System.out.println("Wrong input try again using y or n.\n");
-            }
+
 
         }
     }
@@ -135,7 +130,6 @@ public class ConsoleController {
             menu = Menu.GAME;
         }
         System.out.println("You can't start a game when there is no players\n");
-        return;
     }
 
     private void loadPlayerFromDatabase() throws Exception {
@@ -164,12 +158,11 @@ public class ConsoleController {
             session.close();
         }
 
-        return;
     }
 
     private void addNewPlayer() throws Exception {
         if (game == null) {
-            throw new Exception("Trying to add player to non-existing game");
+            throw new NullPointerException("Trying to add player to non-existing game");
         }
         System.out.println("Write player name or r to return to previous screen");
         String name = input.nextLine();
@@ -206,20 +199,20 @@ public class ConsoleController {
 
     }
 
-    public int choseNumberOfPlayers() {
-        int numberOfPlayers;
-        System.out.println("Chose number of players between 2 to 4");
-        numberOfPlayers = Integer.parseInt(input.nextLine());
-        return numberOfPlayers;
-    }
+//    public int choseNumberOfPlayers() {
+//        int numberOfPlayers;
+//        System.out.println("Chose number of players between 2 to 4");
+//        numberOfPlayers = Integer.parseInt(input.nextLine());
+//        return numberOfPlayers;
+//    }
 
-    public String chosePlayerName() {
-
-        String playerName;
-        System.out.println("Write Your name");
-        playerName = input.nextLine();
-        return playerName;
-    }
+//    public String chosePlayerName() {
+//
+//        String playerName;
+//        System.out.println("Write Your name");
+//        playerName = input.nextLine();
+//        return playerName;
+//    }
 
 
     public List<Character> choseLettersToExchange() {
@@ -257,13 +250,13 @@ public class ConsoleController {
 //        return temp.equals("Y");
 //    }
 
-    public void chosePositionOfLetterToRemove() {
-        System.out.println("Row number");
-        //this.posX = Integer.parseInt(input.nextLine());
-        System.out.println("Column number");
-        //this.posY = Integer.parseInt(input.nextLine());
-
-    }
+//    public void chosePositionOfLetterToRemove() {
+//        System.out.println("Row number");
+//        //this.posX = Integer.parseInt(input.nextLine());
+//        System.out.println("Column number");
+//        //this.posY = Integer.parseInt(input.nextLine());
+//
+//    }
 
     public int printPlayerMenu(Player player) {
         System.out.println("Turn: " + player.toString());
@@ -276,13 +269,13 @@ public class ConsoleController {
         return Integer.parseInt(input.nextLine());
     }
 
-    public void printPlayerList(List<Player> listOfPlayers) {
-        for (Player player : listOfPlayers) {
-            System.out.println(player.getName());
-        }
-    }
+//    public void printPlayerList(List<Player> listOfPlayers) {
+//        for (Player player : listOfPlayers) {
+//            System.out.println(player.getName());
+//        }
+//    }
 
-    public void deleteGameMenu() {
+    private void deleteGameMenu() {
         System.out.println("Are you sure you want delete game? All your progress would be lost?\n" +
                 "If you still want to close game press d if you want to continue to play press c");
         String option = input.nextLine().toUpperCase();
