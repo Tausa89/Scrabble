@@ -64,10 +64,9 @@ public class Game {
                     board.print();
                     if (console.removeJustAddedLetterOption() == 'R') {
                         board.getGameBoard()[tempLetter.getPosX()][tempLetter.getPosY()] = null;
-                        player.getPlayerLetters().printList();
+                        player.getPlayerLetters().addLetter(tempLetter.getLetter());
                         board.print();
                     }
-
 
                 } while ((console.addNextLetterMenu() != 'E') || (player.getPlayerLetters() == null));
                 board.setAllLetterIsNewFiledToFalse();

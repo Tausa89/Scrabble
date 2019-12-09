@@ -39,12 +39,11 @@ public class Rack {
         this.playerListOfLetters = playerListOfLetters;
     }
 
-    public boolean addLetter(char letter) {
+    public void addLetter(char letter) {
         if (playerListOfLetters.size() > 8) {
-            return false;
+            throw new IllegalArgumentException("List of letters is full");
         }
         playerListOfLetters.add(new Letters(letter));
-        return true;
     }
 
 
