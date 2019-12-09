@@ -10,6 +10,9 @@ public class Letters {
     private @Getter
     @Setter
     int pointsForLetter;
+    private @Getter
+    @Setter
+    boolean isNew = false;
 
 
     public Letters() {
@@ -18,13 +21,12 @@ public class Letters {
     public Letters(char letter) {
         ListOfLetters list = new ListOfLetters();
         this.letter = letter;
+        this.isNew = true;
         for (Letters let : list.getLettersList()) {
             if (this.letter == let.getLetter()) {
                 this.pointsForLetter = let.getPointsForLetter();
             }
         }
-        //TODO automatically get it from somewhere
-        //Done
     }
 
     public Letters(char letter, int pointsForLetter) {

@@ -128,8 +128,8 @@ public class ConsoleController {
             transaction.commit();
             session.close();
             menu = Menu.GAME;
-        }
-        System.out.println("You can't start a game when there is no players\n");
+        } else
+            System.out.println("You can't start a game when there is no players\n");
     }
 
     private void loadPlayerFromDatabase() throws Exception {
@@ -266,7 +266,14 @@ public class ConsoleController {
         System.out.println("If you want to exchange letter or letters press 2\n");
         System.out.println("If you want to exchange all letters press 3\n");
         System.out.println("If you want to skip your turn press 4\n");
-        return Integer.parseInt(input.nextLine());
+        int value = 0;
+        try {
+            value = Integer.parseInt(input.nextLine());
+        } catch (NumberFormatException e) {
+            e.getMessage();
+            System.out.println("Only number from 1 to 4\n");
+        }
+        return value;
     }
 
 //    public void printPlayerList(List<Player> listOfPlayers) {
@@ -295,7 +302,14 @@ public class ConsoleController {
     }
 
     public char addNextLetterMenu() {
-        System.out.println("If you want to end write : e to stop or c to continue");
+        System.out.println("If you want to end write e to stop or c to continue.");
         return input.nextLine().toUpperCase().charAt(0);
     }
+
+    public char removeJustAddedLetterOption() {
+        System.out.println("If you want to cancel your last move press r");
+        return input.nextLine().toUpperCase().charAt(0);
+    }
+
+
 }

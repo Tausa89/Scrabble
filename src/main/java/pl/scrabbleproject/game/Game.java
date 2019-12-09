@@ -2,17 +2,18 @@ package pl.scrabbleproject.game;
 
 import lombok.Getter;
 import pl.scrabbleproject.controllers.console.ConsoleController;
+import pl.scrabbleproject.game.dto.AddLetterObject;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class Game {
     @Getter
-    GameBoard board = new GameBoard();
-    ConsoleController console;
-    ListOfLetters bagOfLetters = new ListOfLetters();
+    private GameBoard board = new GameBoard();
+    private ConsoleController console;
+    private ListOfLetters bagOfLetters = new ListOfLetters();
     @Getter
-    List<Player> players = new LinkedList<>();
+    private List<Player> players = new LinkedList<>();
 
 
     public Game(ConsoleController consoleController) {
@@ -36,17 +37,21 @@ public class Game {
 
     }
 
-    public void addPlayer(Player player) throws Exception {
+    public void addPlayer(Player player) {
         if (players.size() <= 4) {
             players.add(player);
             HelperMethods.drawNewLetter(player, bagOfLetters);
         } else {
-            throw new Exception("Too many players");
+            throw new IndexOutOfBoundsException("Too many players");
         }
     }
 
 
-    private void playerTurn(Player player) {
+    public void playerTurn(Player player) {
+
+        if (player == null) {
+            throw new IllegalArgumentException("Player is null");
+        }
 
         switch (console.printPlayerMenu(player)) {
             case 1:
@@ -54,9 +59,18 @@ public class Game {
                 player.getPlayerLetters().printList();
 
                 do {
-                    board.addLetter(console.addLetterMenu(), player.getPlayerLetters());
+                    AddLetterObject tempLetter = console.addLetterMenu();
+                    board.addLetter(tempLetter, player.getPlayerLetters());
                     board.print();
+                    if (console.removeJustAddedLetterOption() == 'R') {
+                        board.getGameBoard()[tempLetter.getPosX()][tempLetter.getPosY()] = null;
+                        player.getPlayerLetters().printList();
+                        board.print();
+                    }
+
+
                 } while ((console.addNextLetterMenu() != 'E') || (player.getPlayerLetters() == null));
+                board.setAllLetterIsNewFiledToFalse();
                 HelperMethods.drawNewLetter(player, bagOfLetters);
                 board.print();
                 break;
@@ -71,20 +85,18 @@ public class Game {
                 player.getPlayerLetters().printList();
                 break;
             case 4:
-                skipTurn();
                 HelperMethods.drawNewLetter(player, bagOfLetters);
                 break;
 
             default:
-                skipTurn();
+                break;
 
         }
 
     }
 
-
-    public void skipTurn() {
-//        Need to be implemented.
-    }
+//    public void skipTurn() {
+////        Need to be implemented.
+//    }
 
 }

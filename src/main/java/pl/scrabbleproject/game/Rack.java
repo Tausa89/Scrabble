@@ -39,5 +39,13 @@ public class Rack {
         this.playerListOfLetters = playerListOfLetters;
     }
 
+    public boolean addLetter(char letter) {
+        if (playerListOfLetters.size() > 8) {
+            return false;
+        }
+        playerListOfLetters.add(new Letters(letter));
+        return true;
+    }
+
 
 }

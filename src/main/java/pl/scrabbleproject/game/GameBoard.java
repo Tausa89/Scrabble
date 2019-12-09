@@ -7,8 +7,8 @@ import java.util.List;
 
 public class GameBoard {
 
-    private @Getter
-    Letters[][] gameBoard;
+    @Getter
+    private Letters[][] gameBoard;
 
 
     public GameBoard() {
@@ -75,6 +75,17 @@ public class GameBoard {
 
     public void clearBoard() {
         this.gameBoard = new Letters[15][15];
+    }
+
+
+    public void setAllLetterIsNewFiledToFalse() {
+        for (int i = 0; i < 15; i++) {
+            for (int j = 0; j < 15; j++) {
+                if (gameBoard[i][j] != null) {
+                    gameBoard[i][j].setNew(false);
+                }
+            }
+        }
     }
 
 

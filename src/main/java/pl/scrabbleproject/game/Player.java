@@ -30,12 +30,6 @@ public class Player {
 
     }
 
-    public Player(String name, int numberOfWins, int numberOfDraws, int numberOfLoses) {
-        this.name = name;
-        this.numberOfWins = numberOfWins;
-        this.numberOfDraws = numberOfDraws;
-        this.numberOfLoses = numberOfLoses;
-    }
 
     public Player(String name, ListOfLetters bagOfLetters) {
         this.name = name;

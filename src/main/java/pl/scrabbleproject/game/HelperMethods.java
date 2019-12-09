@@ -9,7 +9,7 @@ public class HelperMethods {
     private HelperMethods() {
     }
 
-    public static List<Letters> createListOfPlayerLetters(ListOfLetters lettersList) {
+    static List<Letters> createListOfPlayerLetters(ListOfLetters lettersList) {
 
         List<Letters> playerList = new ArrayList<>();
         for (int i = 0; i < 7; i++) {
@@ -19,7 +19,7 @@ public class HelperMethods {
         return playerList;
     }
 
-    public static void drawNewLetter(Player player, ListOfLetters bagOfLetters) {
+    static void drawNewLetter(Player player, ListOfLetters bagOfLetters) {
         int listSize = 7 - player.getPlayerLetters().getPlayerListOfLetters().size();
         for (int i = 0; i < listSize; i++) {
             shuffleLettersAddNewLetterToPlayerList(player.getPlayerLetters().getPlayerListOfLetters(), bagOfLetters);
@@ -28,16 +28,16 @@ public class HelperMethods {
 
     }
 
-    public static void shuffleLettersAddNewLetterToPlayerList(List<Letters> playerListOfLetters, ListOfLetters bagOfLetters) {
+    static void shuffleLettersAddNewLetterToPlayerList(List<Letters> playerListOfLetters, ListOfLetters bagOfLetters) {
         Collections.shuffle(bagOfLetters.getLettersList());
         playerListOfLetters.add(bagOfLetters.getLettersList().get(0));
     }
 
-    public static void removeLetterFromBag(ListOfLetters lettersList) {
+    static void removeLetterFromBag(ListOfLetters lettersList) {
         lettersList.getLettersList().remove(0);
     }
 
-    public static void removeLetterFromTacka(List<Letters> playerListOfLetters, Letters letter) {
+    static void removeLetterFromTacka(List<Letters> playerListOfLetters, Letters letter) {
         if (!playerListOfLetters.isEmpty()) {
             playerListOfLetters.remove(letter);
         } else
