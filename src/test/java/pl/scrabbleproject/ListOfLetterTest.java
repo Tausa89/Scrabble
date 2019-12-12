@@ -55,5 +55,6 @@ public class ListOfLetterTest {
     public void shouldRemoveAllLettersFromPlayerList() {
         bagOfLetters.exchangeAllLetters(one);
         Assert.assertTrue(one.getPlayerLetters().getPlayerListOfLetters().isEmpty());
+
     }
 }

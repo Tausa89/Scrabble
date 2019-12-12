@@ -58,13 +58,13 @@ public class ListOfLetters {
             }
         }
         player.getPlayerLetters().getPlayerListOfLetters().removeAll(tempList);
-        lettersList.addAll(tempList);
+
 
     }
 
     public void exchangeAllLetters(Player player) {
-        lettersList.addAll(player.getPlayerLetters().getPlayerListOfLetters());
-        player.getPlayerLetters().getPlayerListOfLetters().clear();
-    }
 
+        player.getPlayerLetters().getPlayerListOfLetters().clear();
+
+    }
 }

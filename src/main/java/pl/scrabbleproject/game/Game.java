@@ -62,12 +62,16 @@ public class Game {
                 board.print();
                 break;
             case 2:
+                List<Letters> tempList = createTemporallyLetterList(player);
                 bagOfLetters.exchangeLetters(console.choseLettersToExchange(), player);
                 HelperMethods.drawNewLetter(player, bagOfLetters);
+                returnLettersToBagOfLetters(tempList);
                 break;
             case 3:
+                List<Letters> tempList2 = createTemporallyLetterList(player);
                 bagOfLetters.exchangeAllLetters(player);
                 HelperMethods.drawNewLetter(player, bagOfLetters);
+                returnLettersToBagOfLetters(tempList2);
                 System.out.println("All letters was replaced, this are your new letters");
                 player.getPlayerLetters().printList();
                 break;
@@ -131,5 +135,14 @@ public class Game {
 //    public void skipTurn() {
 ////        Need to be implemented.
 //    }
+
+    private void returnLettersToBagOfLetters(List<Letters> exchangedLetters) {
+        bagOfLetters.getLettersList().addAll(exchangedLetters);
+    }
+
+    private List<Letters> createTemporallyLetterList(Player player) {
+        return player.getPlayerLetters().getPlayerListOfLetters();
+    }
+
 
 }
