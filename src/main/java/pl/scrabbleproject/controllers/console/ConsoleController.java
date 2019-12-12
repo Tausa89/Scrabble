@@ -38,6 +38,7 @@ public class ConsoleController {
             }
         } while (!endGame);
     }
+    //ToDo validacje trzeba dodać.
 
     private void mainMenu() {
         System.out.println("Main Menu:\n");
@@ -303,7 +304,11 @@ public class ConsoleController {
 
     public char addNextLetterMenu() {
         System.out.println("If you want to end write e to stop or c to continue.");
-        return input.nextLine().toUpperCase().charAt(0);
+        char letter = input.nextLine().toUpperCase().charAt(0);
+        if (!Character.toString(letter).matches("[A-Z]")) {
+            System.out.println("Wrong input");
+        }
+        return letter;
     }
 
     public char removeJustAddedLetterOption() {
@@ -311,5 +316,24 @@ public class ConsoleController {
         return input.nextLine().toUpperCase().charAt(0);
     }
 
+    public char removeLetterMenu() {
+        System.out.println("Are you done? If yes press x");
+        return input.nextLine().toUpperCase().charAt(0);
+    }
 
+    public int getCordsXToRemoveLetter() {
+        System.out.println("Enter coordinates of letter you want to remove starting from row number");
+        return Integer.parseInt(input.nextLine());
+    }
+
+    public int getCordsYoRemoveLetter() {
+        System.out.println("Enter column number");
+        return Integer.parseInt(input.nextLine());
+    }
+
+    public char letChoseRemoveLetterMenu() {
+        System.out.println("Your just added word is correct? Or you want to change something?\n" +
+                "If you want to remove some letter press x, if everything is ok press anything");
+        return input.nextLine().toUpperCase().charAt(0);
+    }
 }

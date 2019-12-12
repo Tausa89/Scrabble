@@ -10,9 +10,10 @@ public class Letters {
     private @Getter
     @Setter
     int pointsForLetter;
-    private @Getter
+    private
+    @Getter
     @Setter
-    boolean isNew = false;
+    boolean isNew;
 
 
     public Letters() {
@@ -38,6 +39,7 @@ public class Letters {
     public String toString() {
         return "" + letter;
     }
+
 
     public boolean equals(Object o) {
         if (o == this) return true;

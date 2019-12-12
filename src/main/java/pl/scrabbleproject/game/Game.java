@@ -21,7 +21,7 @@ public class Game {
     }
 
     public void gameLoop() {
-        while ((!bagOfLetters.getLettersList().isEmpty())) {//TODO add check of players letters after bag
+        while ((!bagOfLetters.getLettersList().isEmpty()) || !players.isEmpty()) {
             for (Player x : players) {
                 playerTurn(x);
             }
@@ -55,20 +55,8 @@ public class Game {
 
         switch (console.printPlayerMenu(player)) {
             case 1:
-                board.print();
-                player.getPlayerLetters().printList();
-
-                do {
-                    AddLetterObject tempLetter = console.addLetterMenu();
-                    board.addLetter(tempLetter, player.getPlayerLetters());
-                    board.print();
-                    if (console.removeJustAddedLetterOption() == 'R') {
-                        board.getGameBoard()[tempLetter.getPosX()][tempLetter.getPosY()] = null;
-                        player.getPlayerLetters().addLetter(tempLetter.getLetter());
-                        board.print();
-                    }
-
-                } while ((console.addNextLetterMenu() != 'E') || (player.getPlayerLetters() == null));
+                addLetterToTheBoard(player);
+                letPlayerRemoveLetterFromAddedWord(player);
                 board.setAllLetterIsNewFiledToFalse();
                 HelperMethods.drawNewLetter(player, bagOfLetters);
                 board.print();
@@ -92,6 +80,52 @@ public class Game {
 
         }
 
+    }
+
+    private void addLetterToTheBoard(Player player) {
+        board.print();
+        player.getPlayerLetters().printList();
+
+        do {
+            AddLetterObject tempLetter = console.addLetterMenu();
+            board.addLetter(tempLetter, player.getPlayerLetters());
+            board.print();
+            if (console.removeJustAddedLetterOption() == 'R') {
+                removeJustAddedLetter(player, tempLetter);
+                board.print();
+            }
+
+        } while ((console.addNextLetterMenu() != 'E') || (player.getPlayerLetters() == null));
+    }
+
+    private void letPlayerRemoveLetterFromAddedWord(Player player) {
+        if (console.letChoseRemoveLetterMenu() == 'X') {
+//            try {
+            do {
+                System.out.println("Which letter you want to remove?");
+                int cordX = console.getCordsXToRemoveLetter();
+                int cordY = console.getCordsYoRemoveLetter();
+                if (board.getGameBoard()[cordX][cordY] == null) {
+                    System.out.println("There is no letter at this position");
+                } else if (board.getGameBoard()[cordX][cordY].isNew()) {
+                    player.getPlayerLetters().addLetter(board.getGameBoard()[cordX][cordY].getLetter());
+                    board.getGameBoard()[cordX][cordY] = null;
+                    System.out.println("Letter " + board.getGameBoard()[cordX][cordY].getLetter() + " was added " +
+                            " to Your letters poll and removed from board");
+                } else
+                    System.out.println("You can only remove letter from a word just added by you");
+
+            } while (console.removeLetterMenu() != 'X');
+
+//            } catch (NullPointerException e) {
+//                System.out.println("There is no letter at this position");
+//            }
+        }
+    }
+
+    private void removeJustAddedLetter(Player player, AddLetterObject tempLetter) {
+        board.getGameBoard()[tempLetter.getPosX()][tempLetter.getPosY()] = null;
+        player.getPlayerLetters().addLetter(tempLetter.getLetter());
     }
 
 //    public void skipTurn() {
