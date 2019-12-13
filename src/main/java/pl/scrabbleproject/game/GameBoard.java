@@ -88,5 +88,17 @@ public class GameBoard {
         }
     }
 
+    public int countingPoints() {
+        int points = 0;
+        for (int i = 0; i < 15; i++) {
+            for (int j = 0; j < 15; j++) {
+                if (gameBoard[i][j] != null && gameBoard[i][j].isNew()) {
+                    points += gameBoard[i][j].getPointsForLetter();
+                }
+            }
+        }
+        return points;
+    }
+
 
 }

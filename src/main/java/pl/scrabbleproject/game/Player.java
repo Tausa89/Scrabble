@@ -112,4 +112,9 @@ public class Player {
     public void setPlayerLetters() {
         this.playerLetters = new Rack();
     }
+
+    public void updatePlayersPoints(int points) {
+        this.currentAmountOfPoints += points;
+
+    }
 }

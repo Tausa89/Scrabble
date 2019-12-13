@@ -57,6 +57,7 @@ public class Game {
             case 1:
                 addLetterToTheBoard(player);
                 letPlayerRemoveLetterFromAddedWord(player);
+                player.updatePlayersPoints(board.countingPoints());
                 board.setAllLetterIsNewFiledToFalse();
                 HelperMethods.drawNewLetter(player, bagOfLetters);
                 board.print();
