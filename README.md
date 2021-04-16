@@ -9,7 +9,7 @@
 
 ## General info
 
-Unfinished console version of scrabble game.
+The unfinished console version of scrabble game.
 
 ## Technologies
 * Java - 11
